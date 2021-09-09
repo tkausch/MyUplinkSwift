@@ -48,5 +48,9 @@ public class MyUplinkClient: HttpClient {
     public func ping(completion: @escaping ResultCompletion<VoidResponse, Error>) {
        executeRequest(request: PingRequest(), completion: completion)
     }
+ 
+    public func me(completion: @escaping ResultCompletion<MeResponse, Error>) {
+        executeRequest(request: MeRequest(), completion: completion)
+    }
     
 }

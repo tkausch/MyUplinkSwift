@@ -38,9 +38,8 @@ public class HttpClient {
     private let urlSession: URLSession
 
     
-    // used for mocking response selection
-    // when multiple http status codes are possible
-    public var mockResponseCode: Int?
+    // used for mocking with postman selecting postman example
+    var mockHttpStatus: HTTPStatusCode?
     
     
     public init(host: String, session: URLSession = URLSession.shared, timeout: TimeInterval = 10.0) {
@@ -53,8 +52,8 @@ public class HttpClient {
         var httpHeaders = [String:String]()
         httpHeaders["Accept"] = "application/json"
         
-        if let response_code = mockResponseCode {
-           httpHeaders["x-mock-response-code"] = "\(response_code)"
+        if let response_code = mockHttpStatus {
+            httpHeaders["x-mock-response-code"] = "\(response_code.rawValue)"
         }
         
         return httpHeaders
@@ -100,6 +99,10 @@ public class HttpClient {
         let task = urlSession.dataTask(with: urlRequest) { data, response, error in
             
             guard let httpResponse = response as? HTTPURLResponse, let httpStatusCode = httpResponse.status else {
+                Log.shared.error("Did not get response or HTTP status.")
+                if let e = error {
+                    print(e)
+                }
                 completion(Result.failure(RemoteError.otherError(error)))
                 return
             }
@@ -119,7 +122,8 @@ public class HttpClient {
                     }
                 } catch {
                     // We can not decode json as it is not valid...
-                    Log.shared.error("Could not unmarshall json data! Source error: \(error.localizedDescription)")
+                    Log.shared.error("Could not unmarshall json data: ")
+                    print(error)
                     completion(Result.failure(RemoteError.unmarshallingError(error)))
                 }
                 
@@ -130,7 +134,8 @@ public class HttpClient {
                 Log.shared.error("Caught client error with HTTP status code <\(httpStatusCode.rawValue)>.")
                 completion(Result.failure(RemoteError.clientError(status: httpStatusCode)))
             } else if let e = error {
-                Log.shared.error("Caught other error sending http request! Source error: \(e.localizedDescription)")
+                Log.shared.error("Caught other error sending http request!")
+                print(e)
                 completion(Result.failure(RemoteError.otherError(e)))
             }
             
