@@ -2,4 +2,10 @@
 
 
 # myuplink
-The myUplink API is a RESTful API to access public data from the NIBE S-Series heat pumps. This Swift library provides a simple client using this RESTful API. All access is over HTTPS. Authentication currently achieved using OAuth 2.0 Client Credential methods. Get more information about the public RESTful MyUplink API from [!myUplink](https://dev.myuplink.com)
+The myUplink API is a RESTful API to access public data from the NIBE S-Series heat pumps. This Swift library provides a simple client using this RESTful API. 
+
+- No third party dependencies - only Swift Foundation libraries
+- Authentication using Client Credential OAuth2.0 methods. 
+- Fully UnitTested against a PostmanMock
+
+Get more information about the public RESTful MyUplink API from [!myUplink](https://dev.myuplink.com)
