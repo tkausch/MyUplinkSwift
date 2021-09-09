@@ -32,65 +32,117 @@ class MyUplinkClientTests: XCTestCase {
     // This is the PostMan Mock URL please adjust for your mock!!!
     let mockHost = "d4d4753c-e3f7-4c2b-aecd-f9b96a227cd4.mock.pstmn.io"
 
-    var client: MyUplinkClient!
-    var allRemoteCallsTerminated: XCTestExpectation!
+    var myUplinkClient: MyUplinkClient!
+    var terminated: XCTestExpectation!
     
     
     override func setUpWithError() throws {
-        client = MyUplinkClient(host: mockHost)
-        allRemoteCallsTerminated = XCTestExpectation(description: "Remote calls should have terminated!")
+        myUplinkClient = MyUplinkClient(host: mockHost)
+        terminated = XCTestExpectation(description: "Remote call must terminate!")
     }
     
     override func tearDownWithError() throws {
-        wait(for: [allRemoteCallsTerminated!], timeout: 10.0)
+        wait(for: [terminated!], timeout: 10.0)
     }
     
-    private func callPing(expectedHttpStatusCode: Int) {
-        client.mockResponseCode = expectedHttpStatusCode
-        client.ping(completion: { result in
-            switch result {
-            case .success(VoidResponse: _):
-                XCTFail("Ping should not succeed")
-            case .failure(Error: let e):
-                if let remoteError = e as? RemoteError {
-                    switch remoteError {
-                    case .clientError(status: let s):
-                        XCTAssertTrue(s.rawValue == expectedHttpStatusCode, "We expect ping to return error status <\(expectedHttpStatusCode)>")
-                    default:
-                        break
-                    }
-                } else {
-                    XCTFail("RemoteError expected but got: \(e)")
+    // MARK: XCTAssertions used for testing remote calls
+
+    fileprivate func assertFailedRemoteCall<V,E>(_ result: Result<V, E>, expected: HTTPStatusCode) {
+        switch result {
+        case .success(value: _ ):
+            XCTFail("Expecting error with HTTP status code: \(expected)")
+            break
+        case .failure(error: let e):
+            let msg = "Expecting error with HTTP status code <\(expected.rawValue)>."
+            if let remoteError = e as? RemoteError  {
+                switch remoteError {
+                case .serverError(status: let httpStatusCode):
+                    XCTAssertTrue(httpStatusCode == expected, msg + " But got HTTP status code <\(httpStatusCode.rawValue)>.")
+                case .clientError(status: let httpStatusCode):
+                    XCTAssertTrue(httpStatusCode == expected, msg + " But got HTTP status code <\(httpStatusCode.rawValue)>.")
+                default:
+                    XCTFail("Expecting remote error but got: \(e).")
                 }
+            } else {
+                XCTFail("Expecting remote error but got: \(e).")
             }
-            self.allRemoteCallsTerminated?.fulfill()
-        })
-    }
-    
-    
-    func testPing204() throws {
-        client.mockResponseCode = 204
-        client.ping(completion: { result in
-            switch result {
-            case .failure(Error: _):
-                XCTFail("Ping should succeed.")
-            default:
-                break
-            }
-            self.allRemoteCallsTerminated?.fulfill()
-        })
-        
+        }
+        self.terminated.fulfill()
     }
 
-    
-    func testPing401() throws {
-        callPing(expectedHttpStatusCode:401)
+    public func assertSuccessfulRemoteCall<V,E>(_ result: Result<V,E>) {
+        switch result {
+        case .success(value: _):
+            break
+        case .failure(error: let e):
+            XCTFail("Expecting successful result but got: \(e).")
+        }
+        self.terminated.fulfill()
     }
-
-    func testPing403() throws {
-        callPing(expectedHttpStatusCode:403)
-    }
-    
     
     
 }
+
+// MARK: PingTests
+
+extension MyUplinkClientTests {
+    
+    func testSuccessfulPing() throws {
+        myUplinkClient.mockHttpStatus = .noContent
+        myUplinkClient.ping(completion: { result in
+            self.assertSuccessfulRemoteCall(result)
+        })
+        
+    }
+    
+    func testPingForbidden() throws {
+        myUplinkClient.mockHttpStatus = .forbidden
+        myUplinkClient.ping { result in
+            self.assertFailedRemoteCall(result, expected: .forbidden)
+        }
+    }
+    
+    
+    func testPingUnauthorized() throws {
+        myUplinkClient.mockHttpStatus = .unauthorized
+        myUplinkClient.ping { result in
+            self.assertFailedRemoteCall(result, expected: .unauthorized)
+        }
+    }
+}
+
+
+// MARK: AllSystemsTests
+
+extension MyUplinkClientTests {
+    
+    func testMeSuccessful() throws {
+        myUplinkClient.mockHttpStatus = .ok
+        myUplinkClient.me(completion: { result in
+            self.assertSuccessfulRemoteCall(result)
+        })
+    }
+    
+    func testMeUnauthorized() throws {
+        myUplinkClient.mockHttpStatus = .unauthorized
+        myUplinkClient.me { result in
+            self.assertFailedRemoteCall(result, expected: .unauthorized)
+        }
+    }
+    
+    func testMeForbidden() throws {
+        myUplinkClient.mockHttpStatus = .forbidden
+        myUplinkClient.me { result in
+            self.assertFailedRemoteCall(result, expected: .forbidden)
+        }
+    }
+
+    func testMeInternalServerError() throws {
+        myUplinkClient.mockHttpStatus = .internalServerError
+        myUplinkClient.me { result in
+            self.assertFailedRemoteCall(result, expected: .internalServerError)
+        }
+    }
+    
+}
+
