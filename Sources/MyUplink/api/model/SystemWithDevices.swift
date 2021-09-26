@@ -16,7 +16,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  Device.swift
+//  System.swift
 //  MyUplink
 //
 //  Created by Thomas Kausch on 07.09.21.
@@ -24,9 +24,18 @@
 
 import Foundation
 
-public struct Device: Decodable {
-    var id: String
-    var connectionState: Int
-    var currentFwVersion: String
-    var product: Product
+
+public struct SystemWithDevices: Decodable {
+    /// System identifier.
+    var systemId: String?
+    /// System name.
+    var name: String?
+    /// SecurityLevel
+    var securityLevel: SecurityLevel
+    /// Whether system currently has an active alarm.
+    var hasAlarm: Bool
+    /// ystem country.
+    var country: String?
+    /// List of devices.
+    var devices: [SystemDevice]?
 }

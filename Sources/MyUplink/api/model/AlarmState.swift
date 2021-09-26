@@ -16,19 +16,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  AllSystemsResponse.swift
+//  AlarmState.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 07.09.21.
+//  Created by Thomas Kausch on 26.09.21.
 //
 
 import Foundation
 
-public struct MeResponse: Decodable {
-    
-    var page: Int
-    var itemsPerPage: Int
-    var numItems: Int
-    
-    var systems: [System]
+
+public enum AlarmState: String, Decodable {
+    case None
+    case Active
+    case DismissedByDevice
+    case ResetByUserOnDevice
+    case ResetByUserFromCloud
+    case Unkown
 }

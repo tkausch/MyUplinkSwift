@@ -16,7 +16,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  System.swift
+//  AllSystemsResponse.swift
 //  MyUplink
 //
 //  Created by Thomas Kausch on 07.09.21.
@@ -24,12 +24,11 @@
 
 import Foundation
 
-
-public struct System: Decodable {
-    var systemId: String
-    var name: String
-    var securityLevel: String
-    var hasAlarm: Bool
-    var country: String
-    var devices: [Device]
+public struct SystemsPagedResponse: Decodable {
+    
+    var page: Int
+    var itemsPerPage: Int
+    var numItems: Int
+    
+    var systems: [SystemWithDevices]
 }
