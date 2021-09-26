@@ -24,33 +24,23 @@
 
 import Foundation
 
-public enum Language: String {
+public enum Language: String, Encodable {
     case en, de, sv
 }
 
 
 public class MyUplinkClient: HttpClient {
-    
-    private var language: Language
-    
-    override var httpHeaders: [String : String] {
-        var httpHeaders = super.httpHeaders
-        httpHeaders["accept-language"] = language.rawValue
-        return httpHeaders
-    }
 
     public init(host: String = "myuplink.com", language: Language = .en) {
-        self.language = language
         super.init(host: host)
-       
     }
     
-    public func ping(completion: @escaping ResultCompletion<VoidResponse, Error>) {
-       executeRequest(request: PingRequest(), completion: completion)
+    public func ping(language: Language = .en, completion: @escaping ResultCompletion<Nil, RemoteServiceError>) {
+        executeRequest(request: PingRequest(language: language), completion: completion)
     }
  
-    public func me(completion: @escaping ResultCompletion<MeResponse, Error>) {
-        executeRequest(request: MeRequest(), completion: completion)
+    public func me(language: Language = .en, completion: @escaping ResultCompletion<MeResponse, RemoteServiceError>) {
+        executeRequest(request: MeRequest(language: language), completion: completion)
     }
     
 }

@@ -21,18 +21,20 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B63A080726F38DCE003776EC /* UplinkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A080626F38DCE003776EC /* UplinkError.swift */; };
 		B68C0FA426E7421A00D62FB7 /* MeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA326E7421A00D62FB7 /* MeRequest.swift */; };
 		B68C0FA826E742D800D62FB7 /* MeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA726E742D800D62FB7 /* MeResponse.swift */; };
 		B68C0FAA26E743B400D62FB7 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA926E743B400D62FB7 /* System.swift */; };
 		B68C0FAD26E7449300D62FB7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAC26E7449300D62FB7 /* Device.swift */; };
 		B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAE26E744EA00D62FB7 /* Product.swift */; };
+		B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */; };
 		OBJ_42 /* MyUplinkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* MyUplinkClient.swift */; };
 		OBJ_43 /* MyUplinkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyUplinkEndpoints.swift */; };
 		OBJ_44 /* PingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* PingRequest.swift */; };
 		OBJ_45 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Endpoint.swift */; };
 		OBJ_46 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* HttpClient.swift */; };
 		OBJ_47 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* HttpStatusCode.swift */; };
-		OBJ_48 /* RemoteError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RemoteError.swift */; };
+		OBJ_48 /* RemoteServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RemoteServiceError.swift */; };
 		OBJ_49 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Request.swift */; };
 		OBJ_50 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Logger.swift */; };
 		OBJ_51 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Timestamp.swift */; };
@@ -66,11 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B63A080626F38DCE003776EC /* UplinkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UplinkError.swift; sourceTree = "<group>"; };
 		B68C0FA326E7421A00D62FB7 /* MeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRequest.swift; sourceTree = "<group>"; };
 		B68C0FA726E742D800D62FB7 /* MeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeResponse.swift; sourceTree = "<group>"; };
 		B68C0FA926E743B400D62FB7 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		B68C0FAC26E7449300D62FB7 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		B68C0FAE26E744EA00D62FB7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkRequest.swift; sourceTree = "<group>"; };
 		"MyUplink::MyUplink::Product" /* MyUplink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyUplink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MyUplink::MyUplinkTests::Product" /* MyUplinkTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyUplinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* MyUplinkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkClient.swift; sourceTree = "<group>"; };
@@ -79,7 +83,7 @@
 		OBJ_15 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		OBJ_16 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		OBJ_17 /* HttpStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpStatusCode.swift; sourceTree = "<group>"; };
-		OBJ_18 /* RemoteError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteError.swift; sourceTree = "<group>"; };
+		OBJ_18 /* RemoteServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceError.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		OBJ_22 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				B68C0FA926E743B400D62FB7 /* System.swift */,
 				B68C0FAC26E7449300D62FB7 /* Device.swift */,
 				B68C0FAE26E744EA00D62FB7 /* Product.swift */,
+				B63A080626F38DCE003776EC /* UplinkError.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			children = (
 				OBJ_13 /* PingRequest.swift */,
 				B68C0FA326E7421A00D62FB7 /* MeRequest.swift */,
+				B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */,
 			);
 			path = requests;
 			sourceTree = "<group>";
@@ -146,7 +152,7 @@
 				OBJ_15 /* Endpoint.swift */,
 				OBJ_16 /* HttpClient.swift */,
 				OBJ_17 /* HttpStatusCode.swift */,
-				OBJ_18 /* RemoteError.swift */,
+				OBJ_18 /* RemoteServiceError.swift */,
 				OBJ_19 /* Request.swift */,
 				OBJ_20 /* util */,
 			);
@@ -337,13 +343,15 @@
 				OBJ_45 /* Endpoint.swift in Sources */,
 				B68C0FA426E7421A00D62FB7 /* MeRequest.swift in Sources */,
 				OBJ_46 /* HttpClient.swift in Sources */,
+				B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */,
 				OBJ_47 /* HttpStatusCode.swift in Sources */,
-				OBJ_48 /* RemoteError.swift in Sources */,
+				OBJ_48 /* RemoteServiceError.swift in Sources */,
 				OBJ_49 /* Request.swift in Sources */,
 				OBJ_50 /* Logger.swift in Sources */,
 				OBJ_51 /* Timestamp.swift in Sources */,
 				OBJ_52 /* GrantType.swift in Sources */,
 				OBJ_53 /* OAuthAPI.swift in Sources */,
+				B63A080726F38DCE003776EC /* UplinkError.swift in Sources */,
 				OBJ_54 /* OAuthEndpoints.swift in Sources */,
 				OBJ_55 /* Token.swift in Sources */,
 			);

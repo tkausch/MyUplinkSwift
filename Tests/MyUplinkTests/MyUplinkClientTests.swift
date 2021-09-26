@@ -47,25 +47,21 @@ class MyUplinkClientTests: XCTestCase {
     
     // MARK: XCTAssertions used for testing remote calls
 
-    fileprivate func assertFailedRemoteCall<V,E>(_ result: Result<V, E>, expected: HTTPStatusCode) {
+    func assertFailedRemoteCall<V>(_ result: Result<V, RemoteServiceError>, expected: HTTPStatusCode) {
         switch result {
         case .success(value: _ ):
             XCTFail("Expecting error with HTTP status code: \(expected)")
             break
         case .failure(error: let e):
-            let msg = "Expecting error with HTTP status code <\(expected.rawValue)>."
-            if let remoteError = e as? RemoteError  {
-                switch remoteError {
-                case .serverError(status: let httpStatusCode):
-                    XCTAssertTrue(httpStatusCode == expected, msg + " But got HTTP status code <\(httpStatusCode.rawValue)>.")
-                case .clientError(status: let httpStatusCode):
-                    XCTAssertTrue(httpStatusCode == expected, msg + " But got HTTP status code <\(httpStatusCode.rawValue)>.")
+                switch e {
+                case .httpError(status: let httpStatusCode, errorData: _):
+                    XCTAssertTrue(httpStatusCode == expected,
+                        "Expecting error with HTTP status code <\(expected.rawValue)>.  But got HTTP status code <\(httpStatusCode.rawValue)>.")
                 default:
-                    XCTFail("Expecting remote error but got: \(e).")
+                    // got data or other error
+                    XCTFail("To remote error: \(e).")
                 }
-            } else {
-                XCTFail("Expecting remote error but got: \(e).")
-            }
+           
         }
         self.terminated.fulfill()
     }
@@ -89,15 +85,14 @@ extension MyUplinkClientTests {
     
     func testSuccessfulPing() throws {
         myUplinkClient.mockHttpStatus = .noContent
-        myUplinkClient.ping(completion: { result in
+        myUplinkClient.ping() { result in
             self.assertSuccessfulRemoteCall(result)
-        })
-        
+        }
     }
     
     func testPingForbidden() throws {
         myUplinkClient.mockHttpStatus = .forbidden
-        myUplinkClient.ping { result in
+        myUplinkClient.ping() { result in
             self.assertFailedRemoteCall(result, expected: .forbidden)
         }
     }
@@ -105,7 +100,7 @@ extension MyUplinkClientTests {
     
     func testPingUnauthorized() throws {
         myUplinkClient.mockHttpStatus = .unauthorized
-        myUplinkClient.ping { result in
+        myUplinkClient.ping() { result in
             self.assertFailedRemoteCall(result, expected: .unauthorized)
         }
     }
@@ -118,31 +113,50 @@ extension MyUplinkClientTests {
     
     func testMeSuccessful() throws {
         myUplinkClient.mockHttpStatus = .ok
-        myUplinkClient.me(completion: { result in
+        myUplinkClient.me() { result in
             self.assertSuccessfulRemoteCall(result)
-        })
+        }
     }
     
     func testMeUnauthorized() throws {
         myUplinkClient.mockHttpStatus = .unauthorized
-        myUplinkClient.me { result in
+        myUplinkClient.me() { result in
             self.assertFailedRemoteCall(result, expected: .unauthorized)
         }
     }
     
     func testMeForbidden() throws {
         myUplinkClient.mockHttpStatus = .forbidden
-        myUplinkClient.me { result in
+        myUplinkClient.me() { result in
             self.assertFailedRemoteCall(result, expected: .forbidden)
         }
     }
 
     func testMeInternalServerError() throws {
         myUplinkClient.mockHttpStatus = .internalServerError
-        myUplinkClient.me { result in
+        myUplinkClient.me() { result in
             self.assertFailedRemoteCall(result, expected: .internalServerError)
         }
     }
+ 
+    func testMeServiceUavailableServerError() throws {
+        myUplinkClient.mockHttpStatus = .serviceUnavailable
+        myUplinkClient.me() { result in
+            self.assertFailedRemoteCall(result, expected: .serviceUnavailable)
+            
+            switch result {
+            case .failure(let remoteServiceError):
+                if let upLinkError = remoteServiceError.uplinkError {
+                    XCTAssertNotNil(upLinkError)
+                } else {
+                    XCTFail("Expecting UpLinkError as data")
+                }
+            case .success(_):
+                XCTFail("expecting error")
+            }
+        }
+    }
+    
     
 }
 

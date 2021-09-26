@@ -25,7 +25,7 @@
 import Foundation
 
 
-public enum HTTPStatusCode: Int  {
+public enum HTTPStatusCode: Int, Encodable, Decodable  {
     
     /// The response class representation of status codes, these get grouped by their first digit.
     enum StatusType {
