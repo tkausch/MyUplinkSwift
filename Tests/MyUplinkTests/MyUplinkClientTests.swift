@@ -47,7 +47,7 @@ class MyUplinkClientTests: XCTestCase {
     
     // MARK: XCTAssertions used for testing remote calls
 
-    func assertFailedRemoteCall<V>(_ result: Result<V, RemotServiceError>, expected: HTTPStatusCode) {
+    func assertFailedRemoteCall<V>(_ result: Result<V, ServiceError>, expected: HTTPStatusCode) {
         switch result {
         case .success(value: _ ):
             XCTFail("Expecting error with HTTP status code: \(expected)")
