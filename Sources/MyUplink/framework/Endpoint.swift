@@ -33,7 +33,7 @@ public protocol Endpoint {
 
 extension Endpoint {
     
-    func url(host: String, queryParameters: [String : String]?) throws -> URL  {
+    func url(host: String, queryParameters: [String : String]?) -> URL?  {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host
@@ -47,12 +47,7 @@ extension Endpoint {
             })
         }
         
-        guard let url = components.url else {
-            Log.shared.error("Error building url! host=<\(host)>, path=<\(path)>, queryParams=<\(String(describing: queryParameters))>")
-            throw RemoteError.urlComponentError(reason: "Could not buld URL from \(components)!")
-        }
-        
-        return url
+        return components.url
     }
     
 }

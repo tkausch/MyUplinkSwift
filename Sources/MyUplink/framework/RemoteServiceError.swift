@@ -24,11 +24,8 @@
 
 import Foundation
 
-public enum RemoteError: Error {
-    case clientError(status: HTTPStatusCode)
-    case serverError(status: HTTPStatusCode)
-    case marshallingError(Error)
-    case unmarshallingError(Error)
-    case urlComponentError(reason: String)
-    case otherError(Error?)
+public enum RemoteServiceError: Error {
+    case httpError(status: HTTPStatusCode, errorData: Data?)
+    case dataFormatError(Error)
+    case otherError(msg: String)
 }

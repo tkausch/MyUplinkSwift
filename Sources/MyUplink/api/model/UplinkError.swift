@@ -15,27 +15,42 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-//  AllSystemsRequest.swift
+//
+//
+//  MyUplinkError.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 07.09.21.
+//  Created by Thomas Kausch on 16.09.21.
 //
 
 import Foundation
 
 
-struct MeRequest: MyUplinkRequest {
+struct UplinkError: Decodable {
+    let httpStatusCode: HTTPStatusCode
+    let errorCode: Int
+    let timestamp: Date
+    let details: [String]
+    let data: [String : String]
+}
+
+extension RemoteServiceError {
     
-    typealias ResponseObject = MeResponse
-    typealias RequestObject  = Nil
-   
-    var mockHttpStatus: HTTPStatusCode?
-    
-    var language: Language
-    var requestObject = Nil()
-    
-    var endpoint: Endpoint {
-        return MyUplinkEndpoints.me
+    var uplinkError: UplinkError? {
+        switch self {
+        case .httpError(status: _, errorData: let data):
+            if let d = data {
+                var decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                let uplinkError = try? decoder.decode(UplinkError.self, from: d)
+                return uplinkError
+            } else {
+                return nil
+            }
+        default:
+            return nil
+        }
     }
     
 }
+

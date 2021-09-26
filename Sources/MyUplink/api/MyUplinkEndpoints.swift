@@ -28,7 +28,7 @@ import Foundation
 enum MyUplinkEndpoints: Endpoint {
   
     case ping
-    case allSystems
+    case me
     case systemDetails(systemId: String)
     case categories(systemId: String)
     case deviceInfo(deviceId: String)
@@ -44,7 +44,7 @@ enum MyUplinkEndpoints: Endpoint {
     var method: HttpMethod {
         switch self {
         case .ping,
-             .allSystems,
+             .me,
              .systemDetails(systemId: _),
              .categories(systemId: _),
              .deviceInfo(deviceId: _),
@@ -58,7 +58,7 @@ enum MyUplinkEndpoints: Endpoint {
         switch self {
         case .ping:
             return "/\(version)/protected-ping"
-        case .allSystems:
+        case .me:
             return "/\(version)/systems/me"
         case .systemDetails(systemId: let systemId):
             return "/\(version)/systems/\(systemId)"

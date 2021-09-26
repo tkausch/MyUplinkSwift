@@ -29,7 +29,7 @@ public enum HttpMethod: String {
     case GET, POST, PUT, DELETE
 }
 
-public typealias ResultCompletion<V,E: Error> = (Result<V, E>) -> Void
+public typealias ResultCompletion<V, E: Error> = (Result<V, E>) -> Void
 
 public class HttpClient {
     
@@ -48,32 +48,31 @@ public class HttpClient {
         self.timeout = timeout
     }
     
-    var httpHeaders: [String : String]  {
-        var httpHeaders = [String:String]()
-        httpHeaders["Accept"] = "application/json"
-        
-        if let response_code = mockHttpStatus {
-            httpHeaders["x-mock-response-code"] = "\(response_code.rawValue)"
-        }
-        
-        return httpHeaders
-    }
-    
-    public func executeRequest<T: Request>(request: T, completion: @escaping ResultCompletion<T.Response, Error>) {
-        do {
-            try send(request: request) { result in
+    public func executeRequest<T: Request>(request: T, completion: @escaping ResultCompletion<T.ResponseObject, RemoteServiceError>) {
+        send(request: request) { result in
                 completion(result)
-            }
-        } catch {
-            completion(Result.failure(error))
         }
     }
     
-    private func send<T: Request>(request: T, completion: @escaping ResultCompletion<T.Response, Error>) throws {
+    private func dispatchMainAsync(completion: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            completion()
+        }
+    }
+    
+    
+    private func send<T: Request>(request: T, completion: @escaping ResultCompletion<T.ResponseObject, RemoteServiceError>)  {
 
         // construct url from endpoint
-        let url = try request.endpoint.url(host: host, queryParameters: request.queryParameters)
-        
+        guard let url = request.endpoint.url(host: host, queryParameters: request.queryParameters) else {
+            let msg = "Error building url! host=<\(host)>, endpoint=<\(request.endpoint)>, queryParams=<\(String(describing: request.queryParameters))>"
+            let remoteError = RemoteServiceError.otherError(msg:"Could not create URL: \(msg)")
+            dispatchMainAsync {
+                completion(.failure(remoteError))
+            }
+            return
+        }
+            
         // construct request and adjust parameters later
         var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: timeout)
 
@@ -82,61 +81,84 @@ public class HttpClient {
         
         // Add http header values for request...
         // Note: httpHeaders is a computed property and can be overriden by subclass
-        httpHeaders.forEach({ key, value in
+        request.httpHeaders.forEach({ key, value in
             urlRequest.setValue(value, forHTTPHeaderField: key)
         })
+        
+        if let httpStatusCode = mockHttpStatus {
+            urlRequest.setValue("\(httpStatusCode.rawValue)", forHTTPHeaderField: "x-mock-response-code")
+        }
         
         // Only a json request body for POST and PUT method. GET, DELETE do not have a body.
         if urlRequest.httpMethod == "POST" || urlRequest.httpMethod == "PUT" {
             do {
-                urlRequest.httpBody = try JSONEncoder().encode(request)
+                urlRequest.httpBody = try JSONEncoder().encode(request.requestObject)
             } catch {
                 Log.shared.error("Could not marshall request: \(urlRequest)")
-                throw RemoteError.marshallingError(error)
+                dispatchMainAsync {
+                    completion(.failure(RemoteServiceError.dataFormatError(error)))
+                }
             }
         }
         
         let task = urlSession.dataTask(with: urlRequest) { data, response, error in
             
-            guard let httpResponse = response as? HTTPURLResponse, let httpStatusCode = httpResponse.status else {
-                Log.shared.error("Did not get response or HTTP status.")
+            guard error == nil else {
                 if let e = error {
+                    Log.shared.error("Caught error sending http request!")
                     print(e)
+                    self.dispatchMainAsync {
+                        completion(Result.failure(RemoteServiceError.otherError(msg: e.localizedDescription)))
+                    }
                 }
-                completion(Result.failure(RemoteError.otherError(error)))
                 return
             }
             
-            if httpStatusCode.type == .success  {
+            
+            guard let httpResponse = response as? HTTPURLResponse, let httpStatusCode = httpResponse.status else {
+                if let e = error {
+                    print(e)
+                    self.dispatchMainAsync {
+                        completion(Result.failure(RemoteServiceError.otherError(msg: e.localizedDescription)))
+                    }
+                } else {
+                    self.dispatchMainAsync {
+                        completion(Result.failure(RemoteServiceError.otherError(msg: "Did not get response or HTTP status.")))
+                    }
+                }
+                return
+            }
+            
+            if  httpStatusCode.type == .success  {
                 do {
                     if let responseData = data, responseData.count > 0 {
                         // We got json data response and can decode it now...
-                        let responseObj = try JSONDecoder().decode(T.Response.self, from: responseData)
-                        completion(Result.success(responseObj))
-                    
+                        let responseObj = try JSONDecoder().decode(T.ResponseObject.self, from: responseData)
+                        self.dispatchMainAsync {
+                            completion(Result.success(responseObj))
+                        }
                     } else {
                         
                         // No response data! Return VoidResponse object
-                        let responseObj = try JSONDecoder().decode(T.Response.self, from: "{ }".data(using: .utf8)!  )
-                        completion(Result.success(responseObj))
+                        let responseObj = try JSONDecoder().decode(T.ResponseObject.self, from: "{ }".data(using: .utf8)!  )
+                        self.dispatchMainAsync {
+                            completion(Result.success(responseObj))
+                        }
                     }
                 } catch {
                     // We can not decode json as it is not valid...
                     Log.shared.error("Could not unmarshall json data: ")
                     print(error)
-                    completion(Result.failure(RemoteError.unmarshallingError(error)))
+                    self.dispatchMainAsync {
+                        completion(Result.failure(RemoteServiceError.dataFormatError(error)))
+                    }
                 }
                 
-            } else  if httpStatusCode.type == .serverError {
-                Log.shared.error("Caught server error with HTTP status code <\(httpStatusCode.rawValue)>.")
-                completion(Result.failure(RemoteError.serverError(status: httpStatusCode)))
-            } else if httpStatusCode.type == .clientError {
-                Log.shared.error("Caught client error with HTTP status code <\(httpStatusCode.rawValue)>.")
-                completion(Result.failure(RemoteError.clientError(status: httpStatusCode)))
-            } else if let e = error {
-                Log.shared.error("Caught other error sending http request!")
-                print(e)
-                completion(Result.failure(RemoteError.otherError(e)))
+            } else {
+                Log.shared.error("HTTP status code <\(httpStatusCode.rawValue)>.")
+                self.dispatchMainAsync {
+                    completion(Result.failure(RemoteServiceError.httpError(status: httpStatusCode, errorData: data)))
+                }
             }
             
         }

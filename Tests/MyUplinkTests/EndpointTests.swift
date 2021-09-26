@@ -68,19 +68,19 @@ class EndpointTests: XCTestCase {
     func testUrl() throws {
         
         let queryParams = [param1: value1]
-        let url: URL = try endpoint.url(host: host, queryParameters: queryParams)
+        let url: URL? = endpoint.url(host: host, queryParameters: queryParams)
         
         XCTAssertNotNil(url)
-        XCTAssertEqual(url.host, host)
-        XCTAssertEqual(url.scheme, "https")
-        XCTAssertEqual(url.query, "\(param1)=\(value1)")
+        XCTAssertEqual(url?.host, host)
+        XCTAssertEqual(url?.scheme, "https")
+        XCTAssertEqual(url?.query, "\(param1)=\(value1)")
     }
     
     func testUrlQueryParamEncoding() throws {
         let queryParams = [param1: value3]
-        let url = try endpoint.url(host: host, queryParameters: queryParams)
+        let url = endpoint.url(host: host, queryParameters: queryParams)
         XCTAssertNotNil(url)
-        XCTAssertEqual(url.query, "\(param1)=\(value3.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")")
+        XCTAssertEqual(url?.query, "\(param1)=\(value3.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")")
     }
 
 }

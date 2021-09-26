@@ -16,24 +16,28 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  PingRequest.swift
-//  myuplink
+//  MyUplinkRequest.swift
+//  MyUplink
 //
-//  Created by Thomas Kausch on 05.07.21.
+//  Created by Thomas Kausch on 09.09.21.
 //
 
 import Foundation
 
-struct PingRequest: MyUplinkRequest {
-    
-    typealias ResponseObject = Nil
-    typealias RequestObject  = Nil
-    
-    var language: Language
-    var requestObject = Nil()
-    
-    var endpoint: Endpoint {
-        return MyUplinkEndpoints.ping
-    }
-    
+public protocol MyUplinkRequest: Request {
+    var language: Language { get set }
 }
+
+extension MyUplinkRequest {
+    
+    var httpHeaders: [String : String]  {
+        var httpHeaders = [String:String]()
+        httpHeaders["Accept"] = "application/json"
+        
+        httpHeaders["accept-language"] = language.rawValue
+        
+        return httpHeaders
+    }
+}
+
+
