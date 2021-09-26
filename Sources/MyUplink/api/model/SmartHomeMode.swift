@@ -16,15 +16,19 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  Product.swift
+//  SmartHomeMode.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 07.09.21.
+//  Created by Thomas Kausch on 26.09.21.
 //
 
 import Foundation
 
-public struct Product: Decodable {
-    var serialNumber: String?
-    var name: String?
+
+enum SmartHomeMode: String, Decodable {
+    case Default
+    case Normal
+    case Away
+    case Vacaction
+    case Home
 }

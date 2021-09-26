@@ -16,15 +16,18 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  Product.swift
+//
+//  AlarmStatus.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 07.09.21.
+//  Created by Thomas Kausch on 26.09.21.
 //
 
 import Foundation
 
-public struct Product: Decodable {
-    var serialNumber: String?
-    var name: String?
+
+
+public struct AlarmStatus: Decodable {
+    let status: AlarmState
+    let datetime: Date
 }

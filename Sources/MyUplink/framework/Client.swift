@@ -31,7 +31,7 @@ public enum HttpMethod: String {
 
 public typealias ResultCompletion<V, E: Error> = (Result<V, E>) -> Void
 
-public class HttpClient {
+public class Client {
     
     private let host: String
     private let timeout: TimeInterval
@@ -48,7 +48,7 @@ public class HttpClient {
         self.timeout = timeout
     }
     
-    public func executeRequest<T: Request>(request: T, completion: @escaping ResultCompletion<T.ResponseObject, RemoteServiceError>) {
+    public func executeRequest<T: Request>(request: T, completion: @escaping ResultCompletion<T.ResponseObject, ServiceError>) {
         send(request: request) { result in
                 completion(result)
         }
@@ -61,12 +61,12 @@ public class HttpClient {
     }
     
     
-    private func send<T: Request>(request: T, completion: @escaping ResultCompletion<T.ResponseObject, RemoteServiceError>)  {
+    private func send<T: Request>(request: T, completion: @escaping ResultCompletion<T.ResponseObject, ServiceError>)  {
 
         // construct url from endpoint
         guard let url = request.endpoint.url(host: host, queryParameters: request.queryParameters) else {
             let msg = "Error building url! host=<\(host)>, endpoint=<\(request.endpoint)>, queryParams=<\(String(describing: request.queryParameters))>"
-            let remoteError = RemoteServiceError.otherError(msg:"Could not create URL: \(msg)")
+            let remoteError = ServiceError.otherError(msg:"Could not create URL: \(msg)")
             dispatchMainAsync {
                 completion(.failure(remoteError))
             }
@@ -96,7 +96,7 @@ public class HttpClient {
             } catch {
                 Log.shared.error("Could not marshall request: \(urlRequest)")
                 dispatchMainAsync {
-                    completion(.failure(RemoteServiceError.dataFormatError(error)))
+                    completion(.failure(ServiceError.dataFormatError(error)))
                 }
             }
         }
@@ -108,7 +108,7 @@ public class HttpClient {
                     Log.shared.error("Caught error sending http request!")
                     print(e)
                     self.dispatchMainAsync {
-                        completion(Result.failure(RemoteServiceError.otherError(msg: e.localizedDescription)))
+                        completion(Result.failure(ServiceError.otherError(msg: e.localizedDescription)))
                     }
                 }
                 return
@@ -119,11 +119,11 @@ public class HttpClient {
                 if let e = error {
                     print(e)
                     self.dispatchMainAsync {
-                        completion(Result.failure(RemoteServiceError.otherError(msg: e.localizedDescription)))
+                        completion(Result.failure(ServiceError.otherError(msg: e.localizedDescription)))
                     }
                 } else {
                     self.dispatchMainAsync {
-                        completion(Result.failure(RemoteServiceError.otherError(msg: "Did not get response or HTTP status.")))
+                        completion(Result.failure(ServiceError.otherError(msg: "Did not get response or HTTP status.")))
                     }
                 }
                 return
@@ -150,14 +150,14 @@ public class HttpClient {
                     Log.shared.error("Could not unmarshall json data: ")
                     print(error)
                     self.dispatchMainAsync {
-                        completion(Result.failure(RemoteServiceError.dataFormatError(error)))
+                        completion(Result.failure(ServiceError.dataFormatError(error)))
                     }
                 }
                 
             } else {
                 Log.shared.error("HTTP status code <\(httpStatusCode.rawValue)>.")
                 self.dispatchMainAsync {
-                    completion(Result.failure(RemoteServiceError.httpError(status: httpStatusCode, errorData: data)))
+                    completion(Result.failure(ServiceError.httpError(status: httpStatusCode, errorData: data)))
                 }
             }
             

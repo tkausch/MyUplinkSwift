@@ -21,20 +21,31 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		B60ED55227008FC6005171FF /* SmartHomeModeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED55127008FC6005171FF /* SmartHomeModeRequest.swift */; };
+		B60ED5542700907F005171FF /* SmartHomeModeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED5532700907F005171FF /* SmartHomeModeResponse.swift */; };
+		B60ED55627009633005171FF /* SmartHomeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED55527009633005171FF /* SmartHomeMode.swift */; };
+		B60ED55827009787005171FF /* SecurityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED55727009787005171FF /* SecurityLevel.swift */; };
+		B60ED55A27009866005171FF /* DeviceConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED55927009866005171FF /* DeviceConnectionState.swift */; };
+		B60ED55C27009F85005171FF /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED55B27009F85005171FF /* Alarm.swift */; };
+		B60ED55E2700A200005171FF /* AlarmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED55D2700A200005171FF /* AlarmState.swift */; };
+		B60ED5602700A281005171FF /* AlarmStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED55F2700A281005171FF /* AlarmStatus.swift */; };
+		B60ED5622700A34F005171FF /* AlarmSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED5612700A34F005171FF /* AlarmSeverity.swift */; };
+		B60ED5642700A478005171FF /* AlarmsPagedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED5632700A478005171FF /* AlarmsPagedResponse.swift */; };
+		B60ED5662700A7B2005171FF /* NotificationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED5652700A7B2005171FF /* NotificationsRequest.swift */; };
 		B63A080726F38DCE003776EC /* UplinkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A080626F38DCE003776EC /* UplinkError.swift */; };
-		B68C0FA426E7421A00D62FB7 /* MeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA326E7421A00D62FB7 /* MeRequest.swift */; };
-		B68C0FA826E742D800D62FB7 /* MeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA726E742D800D62FB7 /* MeResponse.swift */; };
-		B68C0FAA26E743B400D62FB7 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA926E743B400D62FB7 /* System.swift */; };
-		B68C0FAD26E7449300D62FB7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAC26E7449300D62FB7 /* Device.swift */; };
+		B68C0FA426E7421A00D62FB7 /* SystemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA326E7421A00D62FB7 /* SystemsRequest.swift */; };
+		B68C0FA826E742D800D62FB7 /* SystemsPagedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA726E742D800D62FB7 /* SystemsPagedResponse.swift */; };
+		B68C0FAA26E743B400D62FB7 /* SystemWithDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA926E743B400D62FB7 /* SystemWithDevices.swift */; };
+		B68C0FAD26E7449300D62FB7 /* SystemDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAC26E7449300D62FB7 /* SystemDevice.swift */; };
 		B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAE26E744EA00D62FB7 /* Product.swift */; };
 		B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */; };
 		OBJ_42 /* MyUplinkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* MyUplinkClient.swift */; };
 		OBJ_43 /* MyUplinkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyUplinkEndpoints.swift */; };
 		OBJ_44 /* PingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* PingRequest.swift */; };
 		OBJ_45 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Endpoint.swift */; };
-		OBJ_46 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* HttpClient.swift */; };
+		OBJ_46 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Client.swift */; };
 		OBJ_47 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* HttpStatusCode.swift */; };
-		OBJ_48 /* RemoteServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RemoteServiceError.swift */; };
+		OBJ_48 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* ServiceError.swift */; };
 		OBJ_49 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Request.swift */; };
 		OBJ_50 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Logger.swift */; };
 		OBJ_51 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Timestamp.swift */; };
@@ -69,11 +80,22 @@
 
 /* Begin PBXFileReference section */
 		B60ED55027008851005171FF /* myuplink.com.postman_collection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = myuplink.com.postman_collection.json; sourceTree = "<group>"; };
+		B60ED55127008FC6005171FF /* SmartHomeModeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeModeRequest.swift; sourceTree = "<group>"; };
+		B60ED5532700907F005171FF /* SmartHomeModeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeModeResponse.swift; sourceTree = "<group>"; };
+		B60ED55527009633005171FF /* SmartHomeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeMode.swift; sourceTree = "<group>"; };
+		B60ED55727009787005171FF /* SecurityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityLevel.swift; sourceTree = "<group>"; };
+		B60ED55927009866005171FF /* DeviceConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnectionState.swift; sourceTree = "<group>"; };
+		B60ED55B27009F85005171FF /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		B60ED55D2700A200005171FF /* AlarmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
+		B60ED55F2700A281005171FF /* AlarmStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmStatus.swift; sourceTree = "<group>"; };
+		B60ED5612700A34F005171FF /* AlarmSeverity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSeverity.swift; sourceTree = "<group>"; };
+		B60ED5632700A478005171FF /* AlarmsPagedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsPagedResponse.swift; sourceTree = "<group>"; };
+		B60ED5652700A7B2005171FF /* NotificationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsRequest.swift; sourceTree = "<group>"; };
 		B63A080626F38DCE003776EC /* UplinkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UplinkError.swift; sourceTree = "<group>"; };
-		B68C0FA326E7421A00D62FB7 /* MeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRequest.swift; sourceTree = "<group>"; };
-		B68C0FA726E742D800D62FB7 /* MeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeResponse.swift; sourceTree = "<group>"; };
-		B68C0FA926E743B400D62FB7 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
-		B68C0FAC26E7449300D62FB7 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		B68C0FA326E7421A00D62FB7 /* SystemsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsRequest.swift; sourceTree = "<group>"; };
+		B68C0FA726E742D800D62FB7 /* SystemsPagedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsPagedResponse.swift; sourceTree = "<group>"; };
+		B68C0FA926E743B400D62FB7 /* SystemWithDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemWithDevices.swift; sourceTree = "<group>"; };
+		B68C0FAC26E7449300D62FB7 /* SystemDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDevice.swift; sourceTree = "<group>"; };
 		B68C0FAE26E744EA00D62FB7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkRequest.swift; sourceTree = "<group>"; };
 		"MyUplink::MyUplink::Product" /* MyUplink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyUplink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,9 +104,9 @@
 		OBJ_11 /* MyUplinkEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkEndpoints.swift; sourceTree = "<group>"; };
 		OBJ_13 /* PingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingRequest.swift; sourceTree = "<group>"; };
 		OBJ_15 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		OBJ_16 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		OBJ_17 /* HttpStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpStatusCode.swift; sourceTree = "<group>"; };
-		OBJ_18 /* RemoteServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceError.swift; sourceTree = "<group>"; };
+		OBJ_18 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		OBJ_22 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
@@ -129,7 +151,9 @@
 		B68C0FA626E7427A00D62FB7 /* responses */ = {
 			isa = PBXGroup;
 			children = (
-				B68C0FA726E742D800D62FB7 /* MeResponse.swift */,
+				B68C0FA726E742D800D62FB7 /* SystemsPagedResponse.swift */,
+				B60ED5532700907F005171FF /* SmartHomeModeResponse.swift */,
+				B60ED5632700A478005171FF /* AlarmsPagedResponse.swift */,
 			);
 			path = responses;
 			sourceTree = "<group>";
@@ -137,10 +161,17 @@
 		B68C0FAB26E7447300D62FB7 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				B68C0FA926E743B400D62FB7 /* System.swift */,
-				B68C0FAC26E7449300D62FB7 /* Device.swift */,
+				B68C0FA926E743B400D62FB7 /* SystemWithDevices.swift */,
+				B68C0FAC26E7449300D62FB7 /* SystemDevice.swift */,
 				B68C0FAE26E744EA00D62FB7 /* Product.swift */,
 				B63A080626F38DCE003776EC /* UplinkError.swift */,
+				B60ED55527009633005171FF /* SmartHomeMode.swift */,
+				B60ED55727009787005171FF /* SecurityLevel.swift */,
+				B60ED55927009866005171FF /* DeviceConnectionState.swift */,
+				B60ED55B27009F85005171FF /* Alarm.swift */,
+				B60ED55D2700A200005171FF /* AlarmState.swift */,
+				B60ED55F2700A281005171FF /* AlarmStatus.swift */,
+				B60ED5612700A34F005171FF /* AlarmSeverity.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -149,7 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_13 /* PingRequest.swift */,
-				B68C0FA326E7421A00D62FB7 /* MeRequest.swift */,
+				B68C0FA326E7421A00D62FB7 /* SystemsRequest.swift */,
+				B60ED55127008FC6005171FF /* SmartHomeModeRequest.swift */,
+				B60ED5652700A7B2005171FF /* NotificationsRequest.swift */,
 				B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */,
 			);
 			path = requests;
@@ -159,9 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_15 /* Endpoint.swift */,
-				OBJ_16 /* HttpClient.swift */,
-				OBJ_17 /* HttpStatusCode.swift */,
-				OBJ_18 /* RemoteServiceError.swift */,
+				OBJ_16 /* Client.swift */,
+				OBJ_18 /* ServiceError.swift */,
 				OBJ_19 /* Request.swift */,
 				OBJ_20 /* util */,
 			);
@@ -171,6 +203,7 @@
 		OBJ_20 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_17 /* HttpStatusCode.swift */,
 				OBJ_21 /* Logger.swift */,
 				OBJ_22 /* Timestamp.swift */,
 			);
@@ -344,25 +377,36 @@
 			buildActionMask = 0;
 			files = (
 				B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */,
+				B60ED55E2700A200005171FF /* AlarmState.swift in Sources */,
+				B60ED55827009787005171FF /* SecurityLevel.swift in Sources */,
 				OBJ_42 /* MyUplinkClient.swift in Sources */,
 				OBJ_43 /* MyUplinkEndpoints.swift in Sources */,
-				B68C0FAA26E743B400D62FB7 /* System.swift in Sources */,
-				B68C0FAD26E7449300D62FB7 /* Device.swift in Sources */,
+				B68C0FAA26E743B400D62FB7 /* SystemWithDevices.swift in Sources */,
+				B60ED5642700A478005171FF /* AlarmsPagedResponse.swift in Sources */,
+				B68C0FAD26E7449300D62FB7 /* SystemDevice.swift in Sources */,
 				OBJ_44 /* PingRequest.swift in Sources */,
-				B68C0FA826E742D800D62FB7 /* MeResponse.swift in Sources */,
+				B68C0FA826E742D800D62FB7 /* SystemsPagedResponse.swift in Sources */,
 				OBJ_45 /* Endpoint.swift in Sources */,
-				B68C0FA426E7421A00D62FB7 /* MeRequest.swift in Sources */,
-				OBJ_46 /* HttpClient.swift in Sources */,
+				B68C0FA426E7421A00D62FB7 /* SystemsRequest.swift in Sources */,
+				OBJ_46 /* Client.swift in Sources */,
+				B60ED55C27009F85005171FF /* Alarm.swift in Sources */,
 				B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */,
+				B60ED5622700A34F005171FF /* AlarmSeverity.swift in Sources */,
+				B60ED55627009633005171FF /* SmartHomeMode.swift in Sources */,
 				OBJ_47 /* HttpStatusCode.swift in Sources */,
-				OBJ_48 /* RemoteServiceError.swift in Sources */,
+				OBJ_48 /* ServiceError.swift in Sources */,
 				OBJ_49 /* Request.swift in Sources */,
+				B60ED5602700A281005171FF /* AlarmStatus.swift in Sources */,
 				OBJ_50 /* Logger.swift in Sources */,
 				OBJ_51 /* Timestamp.swift in Sources */,
 				OBJ_52 /* GrantType.swift in Sources */,
+				B60ED5662700A7B2005171FF /* NotificationsRequest.swift in Sources */,
 				OBJ_53 /* OAuthAPI.swift in Sources */,
 				B63A080726F38DCE003776EC /* UplinkError.swift in Sources */,
 				OBJ_54 /* OAuthEndpoints.swift in Sources */,
+				B60ED5542700907F005171FF /* SmartHomeModeResponse.swift in Sources */,
+				B60ED55A27009866005171FF /* DeviceConnectionState.swift in Sources */,
+				B60ED55227008FC6005171FF /* SmartHomeModeRequest.swift in Sources */,
 				OBJ_55 /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

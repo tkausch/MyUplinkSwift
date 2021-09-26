@@ -16,15 +16,16 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  Product.swift
+//  SecurityLevel.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 07.09.21.
+//  Created by Thomas Kausch on 26.09.21.
 //
 
 import Foundation
 
-public struct Product: Decodable {
-    var serialNumber: String?
-    var name: String?
+enum SecurityLevel: String, Decodable {
+    case admin
+    case manager
+    case viewer
 }

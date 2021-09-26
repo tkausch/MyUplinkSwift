@@ -29,11 +29,14 @@ enum MyUplinkEndpoints: Endpoint {
   
     case ping
     case me
+    case smartHomeMode(systemId: String)
     case systemDetails(systemId: String)
+    case notifications(systemId: String)
     case categories(systemId: String)
     case deviceInfo(deviceId: String)
     case dataPoints(deviceId: String)
     case firmware(deviceId: String)
+    
     
     /// Version number of MyUplink rest API
     var version: String {
@@ -45,7 +48,9 @@ enum MyUplinkEndpoints: Endpoint {
         switch self {
         case .ping,
              .me,
+             .smartHomeMode(systemId: _),
              .systemDetails(systemId: _),
+             .notifications(systemId: _),
              .categories(systemId: _),
              .deviceInfo(deviceId: _),
              .dataPoints(deviceId: _),
@@ -60,10 +65,14 @@ enum MyUplinkEndpoints: Endpoint {
             return "/\(version)/protected-ping"
         case .me:
             return "/\(version)/systems/me"
+        case .smartHomeMode(systemId: let systemId):
+            return "/\(version)/systems/\(systemId)/smart-home-mode"
         case .systemDetails(systemId: let systemId):
             return "/\(version)/systems/\(systemId)"
         case .categories(systemId: let systemId):
             return "/\(version)/systems/\(systemId)/categories"
+        case .notifications(systemId: let systemId):
+            return "/\(version)/systems/\(systemId)/notifications"
         case .deviceInfo(deviceId: let deviceId):
             return "/\(version)/devices/\(deviceId)"
         case .dataPoints(deviceId: let deviceId):

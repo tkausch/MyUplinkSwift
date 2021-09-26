@@ -34,13 +34,13 @@ struct UplinkError: Decodable {
     let data: [String : String]
 }
 
-extension RemoteServiceError {
+extension ServiceError {
     
     var uplinkError: UplinkError? {
         switch self {
         case .httpError(status: _, errorData: let data):
             if let d = data {
-                var decoder = JSONDecoder()
+                let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let uplinkError = try? decoder.decode(UplinkError.self, from: d)
                 return uplinkError

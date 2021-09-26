@@ -16,19 +16,16 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  AllSystemsResponse.swift
-//  MyUplink
+//  RestError.swift
+//  myuplink
 //
-//  Created by Thomas Kausch on 07.09.21.
+//  Created by Thomas Kausch on 22.06.21.
 //
 
 import Foundation
 
-public struct MeResponse: Decodable {
-    
-    var page: Int
-    var itemsPerPage: Int
-    var numItems: Int
-    
-    var systems: [System]
+public enum ServiceError: Error {
+    case httpError(status: HTTPStatusCode, errorData: Data?)
+    case dataFormatError(Error)
+    case otherError(msg: String)
 }

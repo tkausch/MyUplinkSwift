@@ -16,16 +16,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  RestError.swift
-//  myuplink
+//  AlarmState.swift
+//  MyUplink
 //
-//  Created by Thomas Kausch on 22.06.21.
+//  Created by Thomas Kausch on 26.09.21.
 //
 
 import Foundation
 
-public enum RemoteServiceError: Error {
-    case httpError(status: HTTPStatusCode, errorData: Data?)
-    case dataFormatError(Error)
-    case otherError(msg: String)
+
+public enum AlarmState: String, Decodable {
+    case None
+    case Active
+    case DismissedByDevice
+    case ResetByUserOnDevice
+    case ResetByUserFromCloud
+    case Unkown
 }

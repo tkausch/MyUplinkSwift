@@ -24,7 +24,7 @@
 
 import Foundation
 
-class OAuthAPI: HttpClient {
+class OAuthAPI: Client {
     var accessToken: Token?
     var refreshToken: Token?
 }
