@@ -29,17 +29,17 @@ public enum Language: String, Encodable {
 }
 
 
-public class MyUplinkClient: HttpClient {
+final public class MyUplinkClient: Client {
 
     public init(host: String = "myuplink.com", language: Language = .en) {
         super.init(host: host)
     }
     
-    public func ping(language: Language = .en, completion: @escaping ResultCompletion<Nil, RemoteServiceError>) {
+    public func ping(language: Language = .en, completion: @escaping ResultCompletion<Nil, ServiceError>) {
         executeRequest(request: PingRequest(language: language), completion: completion)
     }
  
-    public func me(language: Language = .en, completion: @escaping ResultCompletion<MeResponse, RemoteServiceError>) {
+    public func me(language: Language = .en, completion: @escaping ResultCompletion<MeResponse, ServiceError>) {
         executeRequest(request: MeRequest(language: language), completion: completion)
     }
     

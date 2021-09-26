@@ -26,7 +26,7 @@ import Foundation
 import os.log
 
 
-public class Log {
+class Log {
     
     private var logger: Logger
     private static var _shared = Log()

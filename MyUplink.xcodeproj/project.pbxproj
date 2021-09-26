@@ -32,9 +32,9 @@
 		OBJ_43 /* MyUplinkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyUplinkEndpoints.swift */; };
 		OBJ_44 /* PingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* PingRequest.swift */; };
 		OBJ_45 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* Endpoint.swift */; };
-		OBJ_46 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* HttpClient.swift */; };
+		OBJ_46 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Client.swift */; };
 		OBJ_47 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* HttpStatusCode.swift */; };
-		OBJ_48 /* RemoteServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* RemoteServiceError.swift */; };
+		OBJ_48 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* ServiceError.swift */; };
 		OBJ_49 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Request.swift */; };
 		OBJ_50 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Logger.swift */; };
 		OBJ_51 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Timestamp.swift */; };
@@ -82,9 +82,9 @@
 		OBJ_11 /* MyUplinkEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkEndpoints.swift; sourceTree = "<group>"; };
 		OBJ_13 /* PingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingRequest.swift; sourceTree = "<group>"; };
 		OBJ_15 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		OBJ_16 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		OBJ_17 /* HttpStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpStatusCode.swift; sourceTree = "<group>"; };
-		OBJ_18 /* RemoteServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceError.swift; sourceTree = "<group>"; };
+		OBJ_18 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		OBJ_19 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		OBJ_22 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
@@ -159,9 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_15 /* Endpoint.swift */,
-				OBJ_16 /* HttpClient.swift */,
-				OBJ_17 /* HttpStatusCode.swift */,
-				OBJ_18 /* RemoteServiceError.swift */,
+				OBJ_16 /* Client.swift */,
+				OBJ_18 /* ServiceError.swift */,
 				OBJ_19 /* Request.swift */,
 				OBJ_20 /* util */,
 			);
@@ -171,6 +170,7 @@
 		OBJ_20 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_17 /* HttpStatusCode.swift */,
 				OBJ_21 /* Logger.swift */,
 				OBJ_22 /* Timestamp.swift */,
 			);
@@ -352,10 +352,10 @@
 				B68C0FA826E742D800D62FB7 /* MeResponse.swift in Sources */,
 				OBJ_45 /* Endpoint.swift in Sources */,
 				B68C0FA426E7421A00D62FB7 /* MeRequest.swift in Sources */,
-				OBJ_46 /* HttpClient.swift in Sources */,
+				OBJ_46 /* Client.swift in Sources */,
 				B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */,
 				OBJ_47 /* HttpStatusCode.swift in Sources */,
-				OBJ_48 /* RemoteServiceError.swift in Sources */,
+				OBJ_48 /* ServiceError.swift in Sources */,
 				OBJ_49 /* Request.swift in Sources */,
 				OBJ_50 /* Logger.swift in Sources */,
 				OBJ_51 /* Timestamp.swift in Sources */,

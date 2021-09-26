@@ -24,7 +24,7 @@
 
 import Foundation
 
-public enum RemoteServiceError: Error {
+public enum ServiceError: Error {
     case httpError(status: HTTPStatusCode, errorData: Data?)
     case dataFormatError(Error)
     case otherError(msg: String)
