@@ -1,0 +1,1253 @@
+{
+	"info": {
+		"_postman_id": "88506935-2b43-45a0-8a24-a39356d8d2fd",
+		"name": "myuplink.com",
+		"description": "The myUplink API is a RESTful api, relying on established conventions from the HTTP specification. As an example, the API relies on the client to use HTTP methods such as GET, POST, PUT, DELETE to describe the action to perform on a resource and it indicates the success or failure of that action by returning a HTTP status code.\n\nAll access is over HTTPS, and is provided over the api.myuplink.com domain.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"item": [
+				{
+					"name": "/v2/protected-ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/protected-ping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"protected-ping"
+							]
+						},
+						"description": "Tests the API availability with authorization header."
+					},
+					"response": [
+						{
+							"name": "204 (nocontent)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/protected-ping",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"protected-ping"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-8df93d5e6f7d434080348f28525da0b4-3ffce81d9053754e-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "8df93d5e6f7d434080348f28525da0b4"
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "899"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T09:53:10.8591495Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "09tY1YQAAAACZjPSZDka3QZepkoFxLKpwWlJIRURHRTA2MDgAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 08:53:10 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "401 (unauthorized)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/protected-ping",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"protected-ping"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "403 (forbidden)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/protected-ping",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"protected-ping"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Systems",
+			"item": [
+				{
+					"name": "ME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/systems/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"systems",
+								"me"
+							]
+						},
+						"description": "Get user systems"
+					},
+					"response": [
+						{
+							"name": "200 (ok)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "379"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-4b8d3bd9a391bf48b36285b0847772ee-d196de4bea45bb42-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "4b8d3bd9a391bf48b36285b0847772ee"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.myuplink.com/v2/systems/me>; rel=\"first\", <https://api.myuplink.com/v2/systems/me>; rel=\"last\""
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "897"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:30:54.0578703Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0Dwo2YQAAAABQyBuWKzYDR7NMNBloCyKaWlJIRURHRTEzMDcAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:31:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"itemsPerPage\": 10,\n    \"numItems\": 1,\n    \"systems\": [\n        {\n            \"systemId\": \"522235b0-4e15-46d5-a968-e28dffde203b\",\n            \"name\": \"NIBE S1155-12 T EM 3X400V\",\n            \"securityLevel\": \"admin\",\n            \"hasAlarm\": false,\n            \"country\": \"Switzerland\",\n            \"devices\": [\n                {\n                    \"id\": \"21050035-2021-2-24-20-1-11\",\n                    \"connectionState\": 1,\n                    \"currentFwVersion\": \"2.5.1\",\n                    \"product\": {\n                        \"serialNumber\": \"06550621075002\",\n                        \"name\": \"NIBE S1155-12 T EM 3X400V\"\n                    }\n                }\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "401 (unauthorized)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"me"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "379"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-4b8d3bd9a391bf48b36285b0847772ee-d196de4bea45bb42-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "4b8d3bd9a391bf48b36285b0847772ee"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.myuplink.com/v2/systems/me>; rel=\"first\", <https://api.myuplink.com/v2/systems/me>; rel=\"last\""
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "897"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:30:54.0578703Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0Dwo2YQAAAABQyBuWKzYDR7NMNBloCyKaWlJIRURHRTEzMDcAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:31:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "403 (forbidden)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"me"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "379"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-4b8d3bd9a391bf48b36285b0847772ee-d196de4bea45bb42-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "4b8d3bd9a391bf48b36285b0847772ee"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.myuplink.com/v2/systems/me>; rel=\"first\", <https://api.myuplink.com/v2/systems/me>; rel=\"last\""
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "897"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:30:54.0578703Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0Dwo2YQAAAABQyBuWKzYDR7NMNBloCyKaWlJIRURHRTEzMDcAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:31:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "500 (InternalServerError)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"me"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "379"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-4b8d3bd9a391bf48b36285b0847772ee-d196de4bea45bb42-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "4b8d3bd9a391bf48b36285b0847772ee"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.myuplink.com/v2/systems/me>; rel=\"first\", <https://api.myuplink.com/v2/systems/me>; rel=\"last\""
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "897"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:30:54.0578703Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0Dwo2YQAAAABQyBuWKzYDR7NMNBloCyKaWlJIRURHRTEzMDcAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:31:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "503 (serviceUnavailable)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"me"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "379"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-4b8d3bd9a391bf48b36285b0847772ee-d196de4bea45bb42-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "4b8d3bd9a391bf48b36285b0847772ee"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.myuplink.com/v2/systems/me>; rel=\"first\", <https://api.myuplink.com/v2/systems/me>; rel=\"last\""
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "897"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:30:54.0578703Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0Dwo2YQAAAABQyBuWKzYDR7NMNBloCyKaWlJIRURHRTEzMDcAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:31:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"httpStatusCode\" : 503,\n    \"errorCode\": 10998,\n    \"timestamp\": \"2021-09-26T13:21:30Z\",\n    \"details\": [\"detailA\", \"detailB\"],\n    \"data\": {\n        \"dataKeyA\": \"dataValueA\",\n        \"dataKeyB\": \"dataValueB\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetSmartHomeMode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/systems/{{systemID}}/smart-home-mode",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"systems",
+								"{{systemID}}",
+								"smart-home-mode"
+							]
+						},
+						"description": "Get current smart home mode of a system"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/{{systemID}}/smart-home-mode",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"{{systemID}}",
+										"smart-home-mode"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-6187ad76bea84c42b7a864c1fd998b41-5d4684826959964e-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "6187ad76bea84c42b7a864c1fd998b41"
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "899"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T10:38:23.4052459Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0j+E1YQAAAADJ7A2hUGuuSq9EOtlCmhB5WlJIRURHRTA4MjAAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 09:38:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"smartHomeMode\": \"Default\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Information about my syste4ms",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "GetNotifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/systems/{{systemID}}/notifications",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"systems",
+								"{{systemID}}",
+								"notifications"
+							]
+						},
+						"description": "Retriev acgive alarm notifications for specified system"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/{{systemID}}/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"{{systemID}}",
+										"notifications"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1171"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-a8601b1712d5fa48b4a00a15e923c112-8a72fb27fa8d9849-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "a8601b1712d5fa48b4a00a15e923c112"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.myuplink.com/v2/systems/522235b0-4e15-46d5-a968-e28dffde203b/notifications>; rel=\"first\", <https://api.myuplink.com/v2/systems/522235b0-4e15-46d5-a968-e28dffde203b/notifications>; rel=\"last\""
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "893"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-08T20:51:33.5296097Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0wxQ5YQAAAADJcIQRI2QwRbMofuIlOl+EWlJIRURHRTA3MTUAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 08 Sep 2021 19:53:38 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"itemsPerPage\": 10,\n    \"numItems\": 2,\n    \"notifications\": [\n        {\n            \"id\": \"6281720d-08ed-4ff9-92b3-fccb6be023f0\",\n            \"alarmNumber\": 102,\n            \"deviceId\": \"21050035-2021-2-24-20-1-11\",\n            \"severity\": 1,\n            \"status\": \"DismissedByDevice\",\n            \"createdDatetime\": \"2021-04-21T14:43:08+0\",\n            \"statusHistory\": [\n                {\n                    \"status\": \"Active\",\n                    \"datetime\": 1619016188\n                }\n            ],\n            \"header\": \"Sens flt –EP21-BT2 supp temp sensor\",\n            \"description\": \"The heat pump has no contact with the supply temperature sensor for system 2. The heat pump switches to alarm operation, which may mean a reduction of comfort.\\r\\nSelect auxiliary operation and contact your installer.\",\n            \"equipName\": \"EB100-EP14\"\n        },\n        {\n            \"id\": \"effd695e-0155-43e8-ab8f-4f1529287e56\",\n            \"alarmNumber\": 102,\n            \"deviceId\": \"21050035-2021-2-24-20-1-11\",\n            \"severity\": 1,\n            \"status\": \"DismissedByDevice\",\n            \"createdDatetime\": \"2021-04-21T14:50:23+0\",\n            \"statusHistory\": [\n                {\n                    \"status\": \"Active\",\n                    \"datetime\": 1619016623\n                }\n            ],\n            \"header\": \"Sens flt –EP21-BT2 supp temp sensor\",\n            \"description\": \"The heat pump has no contact with the supply temperature sensor for system 2. The heat pump switches to alarm operation, which may mean a reduction of comfort.\\r\\nSelect auxiliary operation and contact your installer.\",\n            \"equipName\": \"EB100-EP14\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "GetActiveNotifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/systems/{{systemID}}/notifications/active",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"systems",
+								"{{systemID}}",
+								"notifications",
+								"active"
+							]
+						},
+						"description": "Retriev acgive alarm notifications for specified system"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/systems/{{systemID}}/notifications/active",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"systems",
+										"{{systemID}}",
+										"notifications",
+										"active"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1171"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-fcf541754c0e37449fddfb2ca27031d1-aa48a1221a83d243-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "fcf541754c0e37449fddfb2ca27031d1"
+								},
+								{
+									"key": "Link",
+									"value": "<https://api.myuplink.com/v2/systems/522235b0-4e15-46d5-a968-e28dffde203b/notifications/active>; rel=\"first\", <https://api.myuplink.com/v2/systems/522235b0-4e15-46d5-a968-e28dffde203b/notifications/active>; rel=\"last\""
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "898"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:03:17.2492802Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0Vgo2YQAAAACEB8JmXbJgQZcM5rHj/qtkWlJIRURHRTA4MDkAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:32:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"itemsPerPage\": 10,\n    \"numItems\": 2,\n    \"notifications\": [\n        {\n            \"id\": \"6281720d-08ed-4ff9-92b3-fccb6be023f0\",\n            \"alarmNumber\": 102,\n            \"deviceId\": \"21050035-2021-2-24-20-1-11\",\n            \"severity\": 1,\n            \"status\": \"DismissedByDevice\",\n            \"createdDatetime\": \"2021-04-21T14:43:08+0\",\n            \"statusHistory\": [\n                {\n                    \"status\": \"Active\",\n                    \"datetime\": 1619016188\n                }\n            ],\n            \"header\": \"Sens flt –EP21-BT2 supp temp sensor\",\n            \"description\": \"The heat pump has no contact with the supply temperature sensor for system 2. The heat pump switches to alarm operation, which may mean a reduction of comfort.\\r\\nSelect auxiliary operation and contact your installer.\",\n            \"equipName\": \"EB100-EP14\"\n        },\n        {\n            \"id\": \"effd695e-0155-43e8-ab8f-4f1529287e56\",\n            \"alarmNumber\": 102,\n            \"deviceId\": \"21050035-2021-2-24-20-1-11\",\n            \"severity\": 1,\n            \"status\": \"DismissedByDevice\",\n            \"createdDatetime\": \"2021-04-21T14:50:23+0\",\n            \"statusHistory\": [\n                {\n                    \"status\": \"Active\",\n                    \"datetime\": 1619016623\n                }\n            ],\n            \"header\": \"Sens flt –EP21-BT2 supp temp sensor\",\n            \"description\": \"The heat pump has no contact with the supply temperature sensor for system 2. The heat pump switches to alarm operation, which may mean a reduction of comfort.\\r\\nSelect auxiliary operation and contact your installer.\",\n            \"equipName\": \"EB100-EP14\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Retrieve notification alarms"
+		},
+		{
+			"name": "DeviceInfo",
+			"item": [
+				{
+					"name": "getDeviceInof",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/devices/{{deviceID}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"devices",
+								"{{deviceID}}"
+							]
+						},
+						"description": "Device info query point"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/v2/devices/{{deviceID}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"devices",
+										"{{deviceID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "224"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-4b0476c16bfc274fb175dd224b055498-ec6ddeb330d94b4c-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "4b0476c16bfc274fb175dd224b055498"
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "897"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:03:17.2492802Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0cgo2YQAAAABLn9qE4F/aQI1P3lThmLufWlJIRURHRTA4MDkAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:32:50 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"21050035-2021-2-24-20-1-11\",\n    \"connectionState\": 1,\n    \"firmware\": {\n        \"currentFwVersion\": \"2.5.1\",\n        \"desiredFwVersion\": \"2.5.1\"\n    },\n    \"product\": {\n        \"serialNumber\": \"06550621075002\",\n        \"name\": \"NIBE S1155-12 T EM 3X400V\"\n    },\n    \"availableFeatures\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "DevicePoints",
+			"item": [
+				{
+					"name": "GetDevicePoints",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "de",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/v2/devices/{{deviceID}}/points",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"devices",
+								"{{deviceID}}",
+								"points"
+							]
+						},
+						"description": "Get data points for device"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "de",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/devices/{{deviceID}}/points",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"devices",
+										"{{deviceID}}",
+										"points"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "14685"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:88a4c4fd-f195-45de-afe8-9a5f73e378a8"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=2592000"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'; frame-ancestors 'none'"
+								},
+								{
+									"key": "traceparent",
+									"value": "00-6251bc4331706e4f808d07e7f384488f-4447a2ec725afb4a-00"
+								},
+								{
+									"key": "Request-Id",
+									"value": "6251bc4331706e4f808d07e7f384488f"
+								},
+								{
+									"key": "X-Rate-Limit-Limit",
+									"value": "1h"
+								},
+								{
+									"key": "X-Rate-Limit-Remaining",
+									"value": "896"
+								},
+								{
+									"key": "X-Rate-Limit-Reset",
+									"value": "2021-09-06T13:03:17.2492802Z"
+								},
+								{
+									"key": "X-Cache",
+									"value": "CONFIG_NOCACHE"
+								},
+								{
+									"key": "X-Azure-Ref",
+									"value": "0lgo2YQAAAAAUNlAeJgiTS4UW1kS2lfL5WlJIRURHRTA4MDkAOTBiNTViZjQtNTc3OC00MmE0LWI0OTAtMDk0MDM1M2FmZTFl"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Sep 2021 12:33:26 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"4\",\n        \"parameterName\": \"Aktu\\u00adelle Außen\\u00adluft\\u00adtempe\\u00adratur (BT1)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T11:40:54+00:00\",\n        \"value\": 20.5,\n        \"strVal\": \"20.5°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"Klimatisierungssyste\",\n        \"parameterId\": \"7\",\n        \"parameterName\": \"Vorlauf (EP21-BT2)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T11:12:46+00:00\",\n        \"value\": 22.6,\n        \"strVal\": \"22.6°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"8\",\n        \"parameterName\": \"Vorlauf (BT2)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T12:31:21+00:00\",\n        \"value\": 29.9,\n        \"strVal\": \"29.9°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10\",\n        \"parameterName\": \"Rück\\u00adlauf (BT3)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T12:25:19+00:00\",\n        \"value\": 25.4,\n        \"strVal\": \"25.4°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"12\",\n        \"parameterName\": \"Brauch\\u00adwasser\\u00adberei\\u00adtung (BT6)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T08:58:27+00:00\",\n        \"value\": 40,\n        \"strVal\": \"40°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"13\",\n        \"parameterName\": \"Ein\\u00adtritt Wärme\\u00adquellen\\u00admedium (BT10)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T07:55:58+00:00\",\n        \"value\": 19.3,\n        \"strVal\": \"19.3°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"14\",\n        \"parameterName\": \"Aus\\u00adtritt Wärme\\u00adquellen\\u00admedium (BT11)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T10:52:37+00:00\",\n        \"value\": 21.1,\n        \"strVal\": \"21.1°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"15\",\n        \"parameterName\": \"Konden\\u00adsator (BT12)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T12:30:28+00:00\",\n        \"value\": 27.4,\n        \"strVal\": \"27.4°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"16\",\n        \"parameterName\": \"Heißgas (BT14)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T12:29:44+00:00\",\n        \"value\": 34.2,\n        \"strVal\": \"34.2°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"17\",\n        \"parameterName\": \"Flüssig\\u00adkeits\\u00adleitung (BT15)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T08:02:52+00:00\",\n        \"value\": 23,\n        \"strVal\": \"23°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"19\",\n        \"parameterName\": \"Sauggas (BT17)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T08:44:26+00:00\",\n        \"value\": 25.3,\n        \"strVal\": \"25.3°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"54\",\n        \"parameterName\": \"Mitt\\u00adlere Tempe\\u00adratur (BT1)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T04:22:09+00:00\",\n        \"value\": 18,\n        \"strVal\": \"18°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"57\",\n        \"parameterName\": \"Ex\\u00adterner Vor\\u00adlauf (BT25)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T10:12:39+00:00\",\n        \"value\": 22.7,\n        \"strVal\": \"22.7°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"58\",\n        \"parameterName\": \"Volumen\\u00adstrom\\u00admesser (BF1)\",\n        \"parameterUnit\": \"l/m\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:17:03+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0l/m\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"64\",\n        \"parameterName\": \"Strom (BE1)\",\n        \"parameterUnit\": \"A\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0A\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"65\",\n        \"parameterName\": \"Strom (BE2)\",\n        \"parameterUnit\": \"A\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0A\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"66\",\n        \"parameterName\": \"Strom (BE3)\",\n        \"parameterUnit\": \"A\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0A\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"Klimatisierungssyste\",\n        \"parameterId\": \"98\",\n        \"parameterName\": \"Rück\\u00adlauf (EP21-BT3)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T07:09:16+00:00\",\n        \"value\": 22.2,\n        \"strVal\": \"22.2°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"781\",\n        \"parameterName\": \"Grad\\u00adminuten\",\n        \"parameterUnit\": \"DM\",\n        \"writable\": true,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0DM\",\n        \"smartHomeCategories\": [],\n        \"minValue\": -30000,\n        \"maxValue\": 30000,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"Klimatisierungssyste\",\n        \"parameterId\": \"1707\",\n        \"parameterName\": \"Berech\\u00adneter Vorlauf Klima\\u00adtisie\\u00adrungs\\u00adsystem 2\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T08:11:10+00:00\",\n        \"value\": 20,\n        \"strVal\": \"20°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"1708\",\n        \"parameterName\": \"Berech\\u00adneter Vorlauf Klima\\u00adtisie\\u00adrungs\\u00adsystem 1\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T08:11:10+00:00\",\n        \"value\": 20,\n        \"strVal\": \"20°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"1965\",\n        \"parameterName\": \"Be\\u00adtriebs\\u00admodus Ver\\u00addichter\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:16:54+00:00\",\n        \"value\": 20,\n        \"strVal\": \"Aus\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [\n            {\n                \"value\": \"20\",\n                \"text\": \"Aus\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"40\",\n                \"text\": \"Startet\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"60\",\n                \"text\": \"Ein\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"100\",\n                \"text\": \"100\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"120\",\n                \"text\": \"Ent\\u00adeisung wird durch\\u00adgeführt\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"140\",\n                \"text\": \"Ent\\u00adeisung wird durch\\u00adgeführt\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"160\",\n                \"text\": \"Ent\\u00adeisung wird durch\\u00adgeführt\",\n                \"icon\": \"\"\n            }\n        ],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"1975\",\n        \"parameterName\": \"Dreh\\u00adzahl Hei\\u00adzungs\\u00adumwälz\\u00adpumpe (GP1)\",\n        \"parameterUnit\": \"%\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:16:54+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0%\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"1977\",\n        \"parameterName\": \"Dreh\\u00adzahl Wärme\\u00adquellen\\u00adpumpe (GP2)\",\n        \"parameterUnit\": \"%\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:16:54+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0%\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"Wärme\\u00admengen\\u00adzähler\",\n        \"parameterId\": \"2716\",\n        \"parameterName\": \"Brauch\\u00adwasser, einschl. in\\u00adterner ZH\",\n        \"parameterUnit\": \"kWh\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:15:57+00:00\",\n        \"value\": 939.1,\n        \"strVal\": \"939.1kWh\",\n        \"smartHomeCategories\": [],\n        \"minValue\": 0,\n        \"maxValue\": 9999999,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"Wärme\\u00admengen\\u00adzähler\",\n        \"parameterId\": \"2717\",\n        \"parameterName\": \"Hei\\u00adzung, einschl. in\\u00adterner ZH\",\n        \"parameterUnit\": \"kWh\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 1087.6,\n        \"strVal\": \"1087.6kWh\",\n        \"smartHomeCategories\": [],\n        \"minValue\": 0,\n        \"maxValue\": 9999999,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"Wärme\\u00admengen\\u00adzähler\",\n        \"parameterId\": \"2720\",\n        \"parameterName\": \"Brauch\\u00adwasser, nur Ver\\u00addichter\",\n        \"parameterUnit\": \"kWh\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:15:57+00:00\",\n        \"value\": 937.3,\n        \"strVal\": \"937.3kWh\",\n        \"smartHomeCategories\": [],\n        \"minValue\": 0,\n        \"maxValue\": 9999999,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"Wärme\\u00admengen\\u00adzähler\",\n        \"parameterId\": \"2721\",\n        \"parameterName\": \"Heizung, nur Ver\\u00addichter\",\n        \"parameterUnit\": \"kWh\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 1087.6,\n        \"strVal\": \"1087.6kWh\",\n        \"smartHomeCategories\": [],\n        \"minValue\": 0,\n        \"maxValue\": 9999999,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"Klimatisierungssyste\",\n        \"parameterId\": \"3670\",\n        \"parameterName\": \"Ver\\u00adschieb. Heiz\\u00adkurve Klima\\u00adtisie\\u00adrungs\\u00adsystem 2\",\n        \"parameterUnit\": \"\",\n        \"writable\": true,\n        \"timestamp\": \"2021-05-18T05:32:07+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0\",\n        \"smartHomeCategories\": [],\n        \"minValue\": -10,\n        \"maxValue\": 10,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"3671\",\n        \"parameterName\": \"Ver\\u00adschieb. Heiz\\u00adkurve Klima\\u00adtisie\\u00adrungs\\u00adsystem 1\",\n        \"parameterUnit\": \"\",\n        \"writable\": true,\n        \"timestamp\": \"2021-05-18T05:32:00+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0\",\n        \"smartHomeCategories\": [],\n        \"minValue\": -10,\n        \"maxValue\": 10,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"5927\",\n        \"parameterName\": \"Aktu\\u00adelle Ver\\u00addichter\\u00adfre\\u00adquenz\",\n        \"parameterUnit\": \"Hz\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:16:36+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0Hz\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"7086\",\n        \"parameterName\": \"Mehr Brauch\\u00adwasser\",\n        \"parameterUnit\": \"\",\n        \"writable\": true,\n        \"timestamp\": \"2021-08-29T10:08:52+00:00\",\n        \"value\": 0,\n        \"strVal\": \"Aus\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [\n            {\n                \"value\": \"0\",\n                \"text\": \"Aus\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"1\",\n                \"text\": \"Ein\",\n                \"icon\": \"\"\n            }\n        ],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10733\",\n        \"parameterName\": \"Verdichter blockieren\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10734\",\n        \"parameterName\": \"Zusatzheizung blockieren\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10735\",\n        \"parameterName\": \"Zusatzheizung blockieren\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10736\",\n        \"parameterName\": \"Verdichter blockieren\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10738\",\n        \"parameterName\": \"Heizung blockieren\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:13:29+00:00\",\n        \"value\": 0,\n        \"strVal\": \"0\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10845\",\n        \"parameterName\": \"Saison\\u00adüber\\u00adsicht Wärme\\u00adquellen\\u00admedium\\u00adein\\u00adtritt (EB100-BT10)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T02:50:17+00:00\",\n        \"value\": 12.9,\n        \"strVal\": \"12.9°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10863\",\n        \"parameterName\": \"Saison\\u00adüber\\u00adsicht Wärme\\u00adquellen\\u00admedium\\u00adaus\\u00adtritt (EB100-BT11)\",\n        \"parameterUnit\": \"°C\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T02:49:51+00:00\",\n        \"value\": 10.8,\n        \"strVal\": \"10.8°C\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [],\n        \"scaleValue\": \"0.1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10905\",\n        \"parameterName\": \"Pumpe: Hei\\u00adzungs\\u00admedium (GP1)\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:16:54+00:00\",\n        \"value\": 0,\n        \"strVal\": \"Aus\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [\n            {\n                \"value\": \"0\",\n                \"text\": \"Aus\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"1\",\n                \"text\": \"Ein\",\n                \"icon\": \"\"\n            }\n        ],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"10906\",\n        \"parameterName\": \"Pumpe: Wärme\\u00adquellen\\u00admedium (GP2)\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:16:54+00:00\",\n        \"value\": 0,\n        \"strVal\": \"Aus\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [\n            {\n                \"value\": \"0\",\n                \"text\": \"Aus\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"1\",\n                \"text\": \"Ein\",\n                \"icon\": \"\"\n            }\n        ],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"Wärme\\u00admengen\\u00adzähler\",\n        \"parameterId\": \"22130\",\n        \"parameterName\": \"Current power (kW)\",\n        \"parameterUnit\": \"Ws\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:17:23+00:00\",\n        \"value\": 10,\n        \"strVal\": \"10Ws\",\n        \"smartHomeCategories\": [],\n        \"minValue\": 0,\n        \"maxValue\": 9999999,\n        \"enumValues\": [],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"55000\",\n        \"parameterName\": \"Prio\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-09-06T03:16:27+00:00\",\n        \"value\": 10,\n        \"strVal\": \"Aus\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [\n            {\n                \"value\": \"10\",\n                \"text\": \"Aus\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"20\",\n                \"text\": \"Brauchwasser\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"30\",\n                \"text\": \"Heizung\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"40\",\n                \"text\": \"Pool\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"41\",\n                \"text\": \"Pool 2\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"50\",\n                \"text\": \"Transfer\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"60\",\n                \"text\": \"Kühlung\",\n                \"icon\": \"\"\n            }\n        ],\n        \"scaleValue\": \"1\"\n    },\n    {\n        \"category\": \"NIBE S1155-12 T EM 3X400V\",\n        \"parameterId\": \"55027\",\n        \"parameterName\": \"Interne elektrische Zusatzheizung\",\n        \"parameterUnit\": \"\",\n        \"writable\": false,\n        \"timestamp\": \"2021-08-24T18:14:22+00:00\",\n        \"value\": 4,\n        \"strVal\": \"Blockiert\",\n        \"smartHomeCategories\": [],\n        \"minValue\": null,\n        \"maxValue\": null,\n        \"enumValues\": [\n            {\n                \"value\": \"0\",\n                \"text\": \"Alarm\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"1\",\n                \"text\": \"Alarm\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"2\",\n                \"text\": \"Aktiv\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"3\",\n                \"text\": \"Aus\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"4\",\n                \"text\": \"Blockiert\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"5\",\n                \"text\": \"Aus\",\n                \"icon\": \"\"\n            },\n            {\n                \"value\": \"6\",\n                \"text\": \"Aktiv\",\n                \"icon\": \"\"\n            }\n        ],\n        \"scaleValue\": \"1\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "Get data points for device"
+		},
+		{
+			"name": "Identity",
+			"item": [
+				{
+					"name": "oauth/token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientId",
+				"value": "5798f539-b297-448d-892a-fa6acd2abf60",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": ".eyJuYmYiOjE2MjA5MDgxNzksImV4cCI6MTYyMDkxMTc3OSwiaXNzIjoiaHR0cHM6Ly9hcGkubXl1cGxpbmsuY29tIiwiYXVkIjoiQVBJLXYyIiwiY2xpZW50X2lkIjoiNTc5OGY1MzktYjI5Ny00NDhkLTg5MmEtZmE2YWNkMmFiZjYwIiwic3ViIjoiYWMyYjJjZTYtNDZhYy00MjhlLWFiYTAtZTczM2UzMzAxMmRjIiwianRpIjoiNkM1MzI3QTI5N0Y4MDA1QkQzREY1MzJGQjNDNzVFNjUiLCJpYXQiOjE2MjA5MDgxNzksInNjb3BlIjpbIlJFQURTWVNURU0iXX0.eGF6U10fdA6BtuGtGKNeF-8Wm7nFuBi4j79lBgmaS3jnPJmqR9kPZncqeje2B3OeTloDKTiS69Xf9MGkknm6WdnE5zi68vEBLNcxOn4YhSL0K6KvTsOsKjD8gQCbr9miz_fphwciWnAMMujFu5ZUVX5I3K6ko_pTr8MaLZoMQs_osXeOFcFxpxcnkh1kthT3S7uEUDqcDuLFREXqAsOZZtuL8vtEak6iSuW6VYdcUYx1m7Pnd8-kYWT5rAqtBcFXU6ycKdaNkpQ6QBjNkKeatnWCCe_yAKK1M4wqCVwon4Pa9A7YsCNwq8SuSa0uoCvw8_3XjlTg3wBxkfwa3CwMJg",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "MyUplinkToken",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://api.myuplink.com/oauth/token",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "READSYSTEM",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "FBD5472E3155809672B3D46080B45A6C",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "https://www.mynibe.kausch.li",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({",
+					"  key: 'Accept',",
+					"  value: 'application/json'",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://api.myuplink.com"
+		},
+		{
+			"key": "systemID",
+			"value": "522235b0-4e15-46d5-a968-e28dffde203b"
+		},
+		{
+			"key": "deviceID",
+			"value": "21050035-2021-2-24-20-1-11"
+		},
+		{
+			"key": "base_url_internal",
+			"value": "https://internalapi.myuplink.com"
+		}
+	]
+}

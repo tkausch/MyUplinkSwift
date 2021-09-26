@@ -68,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B60ED55027008851005171FF /* myuplink.com.postman_collection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = myuplink.com.postman_collection.json; sourceTree = "<group>"; };
 		B63A080626F38DCE003776EC /* UplinkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UplinkError.swift; sourceTree = "<group>"; };
 		B68C0FA326E7421A00D62FB7 /* MeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeRequest.swift; sourceTree = "<group>"; };
 		B68C0FA726E742D800D62FB7 /* MeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeResponse.swift; sourceTree = "<group>"; };
@@ -117,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B60ED54F27008851005171FF /* Postman */ = {
+			isa = PBXGroup;
+			children = (
+				B60ED55027008851005171FF /* myuplink.com.postman_collection.json */,
+			);
+			path = Postman;
+			sourceTree = "<group>";
+		};
 		B68C0FA626E7427A00D62FB7 /* responses */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +220,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				B60ED54F27008851005171FF /* Postman */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_28 /* Tests */,
