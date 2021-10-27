@@ -27,15 +27,18 @@ import Foundation
 
 enum MyUplinkEndpoints: Endpoint {
   
-    case ping
-    case me
-    case smartHomeMode(systemId: String)
-    case systemDetails(systemId: String)
-    case notifications(systemId: String)
+    case aidMode(deviceId: String)
     case categories(systemId: String)
     case deviceInfo(deviceId: String)
-    case dataPoints(deviceId: String)
+    case devicePoints(deviceId: String)
     case firmware(deviceId: String)
+    case notifications(systemId: String)
+    case notificationsActive(systemId: String)
+    case ping
+    case premiumSubscriptions(systemId: String)
+    case smartHomeMode(systemId: String)
+    case systemDetails(systemId: String)
+    case systems
     
     
     /// Version number of MyUplink rest API
@@ -46,39 +49,48 @@ enum MyUplinkEndpoints: Endpoint {
     
     var method: HttpMethod {
         switch self {
-        case .ping,
-             .me,
-             .smartHomeMode(systemId: _),
-             .systemDetails(systemId: _),
-             .notifications(systemId: _),
+        case .aidMode(deviceId: _),
              .categories(systemId: _),
              .deviceInfo(deviceId: _),
-             .dataPoints(deviceId: _),
-             .firmware(deviceId: _):
+             .devicePoints(deviceId: _),
+             .firmware(deviceId: _),
+             .notifications(systemId: _),
+             .notificationsActive(systemId: _),
+             .ping,
+             .premiumSubscriptions(systemId: _),
+             .systems,
+             .systemDetails(systemId: _),
+             .smartHomeMode(systemId: _):
             return .GET
         }
     }
     
     var path: String {
         switch self {
-        case .ping:
-            return "/\(version)/protected-ping"
-        case .me:
-            return "/\(version)/systems/me"
-        case .smartHomeMode(systemId: let systemId):
-            return "/\(version)/systems/\(systemId)/smart-home-mode"
-        case .systemDetails(systemId: let systemId):
-            return "/\(version)/systems/\(systemId)"
+        case .aidMode(deviceId:  let deviceId):
+            return "/\(version)/devices/\(deviceId)/aidMode"
         case .categories(systemId: let systemId):
             return "/\(version)/systems/\(systemId)/categories"
-        case .notifications(systemId: let systemId):
-            return "/\(version)/systems/\(systemId)/notifications"
         case .deviceInfo(deviceId: let deviceId):
             return "/\(version)/devices/\(deviceId)"
-        case .dataPoints(deviceId: let deviceId):
+        case .devicePoints(deviceId: let deviceId):
             return "/\(version)/devices/\(deviceId)/points"
         case .firmware(deviceId: let deviceId):
             return "/\(version)/devices/\(deviceId)/firmware"
+        case .notificationsActive(systemId: let systemId):
+            return "/\(version)/systems/\(systemId)/notifications/active"
+        case .notifications(systemId: let systemId):
+            return "/\(version)/systems/\(systemId)/notifications"
+        case .ping:
+            return "/\(version)/protected-ping"
+        case .premiumSubscriptions(systemId: let systemId):
+            return "/\(version)/systems/\(systemId)/subscriptions"
+        case .systems:
+            return "/\(version)/systems/me"
+        case .systemDetails(systemId: let systemId):
+            return "/\(version)/systems/\(systemId)"
+        case .smartHomeMode(systemId: let systemId):
+            return "/\(version)/systems/\(systemId)/smart-home-mode"
         }
     }
     

@@ -28,12 +28,9 @@ import Foundation
 struct SmartHomeModeRequest: MyUplinkRequest {
     
     typealias ResponseObject = SmartHomeModeResponse
-    typealias RequestObject = Nil
     
-    var systemId: String
-    var language: Language
-
-    var requestObject = Nil()
+    let systemId: String
+    let language: Language
     
     var endpoint: Endpoint {
         return MyUplinkEndpoints.smartHomeMode(systemId: self.systemId)

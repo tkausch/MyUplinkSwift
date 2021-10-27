@@ -1,5 +1,4 @@
 //
-//
 //  Copyright (C) 2021 Thomas Kausch.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -16,20 +15,24 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  AlarmsPagedResponse.swift
+//  ActiveNotificationsRequest.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 26.09.21.
+//  Created by Thomas Kausch on 20.10.21.
 //
 
 import Foundation
 
 
-public struct AlarmsPagedResponse: Decodable {
+struct ActiveNotificationsRequest: MyUplinkRequest {
     
-    let page: Int
-    let itemsPerPage: Int
-    let numItems: Int
+    typealias ResponseObject = AlarmsPagedResponse
     
-    let notifications: [Alarm]?
+    let systemId: String
+    let language: Language
+    
+    var endpoint: Endpoint {
+        return MyUplinkEndpoints.notificationsActive(systemId: systemId)
+    }
+    
 }

@@ -15,21 +15,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-//
-//  AlarmsPagedResponse.swift
+//  DeviceInfoResponse.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 26.09.21.
+//  Created by Thomas Kausch on 28.09.21.
 //
 
 import Foundation
 
+public typealias DevicdePointResponse = [ParameterData]
 
-public struct AlarmsPagedResponse: Decodable {
+public struct DeviceInfoResponse: Decodable {
     
-    let page: Int
-    let itemsPerPage: Int
-    let numItems: Int
+    let id: String?
+    let connectionState: DeviceConnectionState
+    let firmware: Firmware
+    let product: Product
     
-    let notifications: [Alarm]?
+    
 }

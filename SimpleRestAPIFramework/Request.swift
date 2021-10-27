@@ -16,20 +16,36 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  AlarmsPagedResponse.swift
-//  MyUplink
+//  APIRequest.swift
+//  myuplink
 //
-//  Created by Thomas Kausch on 26.09.21.
+//  Created by Thomas Kausch on 05.07.21.
 //
 
 import Foundation
 
 
-public struct AlarmsPagedResponse: Decodable {
+public struct Nil: Encodable, Decodable {
+}
+
+public protocol Request {
     
-    let page: Int
-    let itemsPerPage: Int
-    let numItems: Int
+    associatedtype ResponseObject: Decodable
     
-    let notifications: [Alarm]?
+    // Note: Enable when we have PUT & POST requests
+    // associatedtype RequestObject: Encodable
+    // var requestObject: RequestObject { get }
+    
+    var httpHeaders: [String : String] { get }
+    var queryParameters: [String:String]? { get }
+    var endpoint: Endpoint { get }
+    
+    
+    
+}
+
+extension Request {
+    var queryParameters: [String : String]? {
+        return nil
+    }
 }

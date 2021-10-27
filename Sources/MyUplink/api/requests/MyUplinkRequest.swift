@@ -25,7 +25,7 @@
 import Foundation
 
 public protocol MyUplinkRequest: Request {
-    var language: Language { get set }
+    var language: Language { get }
 }
 
 extension MyUplinkRequest {
@@ -38,6 +38,7 @@ extension MyUplinkRequest {
         
         return httpHeaders
     }
+    
 }
 
 

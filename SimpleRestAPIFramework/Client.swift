@@ -90,16 +90,16 @@ public class Client {
         }
         
         // Only a json request body for POST and PUT method. GET, DELETE do not have a body.
-        if urlRequest.httpMethod == "POST" || urlRequest.httpMethod == "PUT" {
-            do {
-                urlRequest.httpBody = try JSONEncoder().encode(request.requestObject)
-            } catch {
-                Log.shared.error("Could not marshall request: \(urlRequest)")
-                dispatchMainAsync {
-                    completion(.failure(ServiceError.dataFormatError(error)))
-                }
-            }
-        }
+//        if urlRequest.httpMethod == "POST" || urlRequest.httpMethod == "PUT" {
+//            do {
+//                urlRequest.httpBody = try JSONEncoder().encode(request.requestObject)
+//            } catch {
+//                Log.shared.error("Could not marshall request: \(urlRequest)")
+//                dispatchMainAsync {
+//                    completion(.failure(ServiceError.dataFormatError(error)))
+//                }
+//            }
+//        }
         
         let task = urlSession.dataTask(with: urlRequest) { data, response, error in
             
@@ -133,7 +133,9 @@ public class Client {
                 do {
                     if let responseData = data, responseData.count > 0 {
                         // We got json data response and can decode it now...
-                        let responseObj = try JSONDecoder().decode(T.ResponseObject.self, from: responseData)
+                        let decoder = JSONDecoder()
+                        decoder.dateDecodingStrategy = .iso8601
+                        let responseObj = try decoder.decode(T.ResponseObject.self, from: responseData)
                         self.dispatchMainAsync {
                             completion(Result.success(responseObj))
                         }

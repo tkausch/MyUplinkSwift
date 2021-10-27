@@ -16,33 +16,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  APIRequest.swift
-//  myuplink
 //
-//  Created by Thomas Kausch on 05.07.21.
+//  Firmware.swift
+//  MyUplink
+//
+//  Created by Thomas Kausch on 28.09.21.
 //
 
 import Foundation
 
 
-public struct Nil: Encodable, Decodable {
-}
-
-public protocol Request {
+public struct Firmware: Decodable {
     
-    associatedtype ResponseObject: Decodable
-    associatedtype RequestObject: Encodable
-    
-    var httpHeaders: [String : String] { get }
-    var queryParameters: [String:String]? { get }
-    var endpoint: Endpoint { get }
-    
-    var requestObject: RequestObject { get }
-    
-}
-
-extension Request {
-    var queryParameters: [String : String]? {
-        return nil
-    }
+    /// Current Firmware Version
+    let currentFwVersion: String?
+    /// Desired Firmware Version
+    let desiredFwVersion: String?
 }
