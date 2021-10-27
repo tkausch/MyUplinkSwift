@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -238,7 +238,7 @@
 			path = requests;
 			sourceTree = "<group>";
 		};
-		OBJ_14 /* SimpleRestAPIFramework */ = {
+		OBJ_14 /* framework */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_15 /* Endpoint.swift */,
@@ -248,7 +248,7 @@
 				OBJ_17 /* HttpStatusCode.swift */,
 				OBJ_20 /* util */,
 			);
-			path = SimpleRestAPIFramework;
+			path = framework;
 			sourceTree = "<group>";
 		};
 		OBJ_20 /* util */ = {
@@ -314,7 +314,6 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_14 /* SimpleRestAPIFramework */,
 				OBJ_8 /* MyUplink */,
 			);
 			name = Sources;
@@ -324,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* MyUplinkClient.swift */,
+				OBJ_14 /* framework */,
 				OBJ_9 /* api */,
 				OBJ_23 /* oauth */,
 			);
@@ -402,7 +402,7 @@
 				LastUpgradeCheck = 9999;
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "MyUplink" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -426,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				OBJ_45 /* Endpoint.swift in Sources */,
 				B61B9C6F27209ABD0025D43C /* DevicePremiumResponse.swift in Sources */,
 				B61B9C7127209BCD0025D43C /* PremiumFeatureSubscription.swift in Sources */,
 				B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */,
@@ -442,7 +443,6 @@
 				OBJ_44 /* PingRequest.swift in Sources */,
 				B68C0FA826E742D800D62FB7 /* SystemsPagedResponse.swift in Sources */,
 				B61B9C7327209CA30025D43C /* DevicePremiumRequest.swift in Sources */,
-				OBJ_45 /* Endpoint.swift in Sources */,
 				B68C0FA426E7421A00D62FB7 /* SystemsRequest.swift in Sources */,
 				OBJ_46 /* Client.swift in Sources */,
 				B61B9C6427207BD80025D43C /* AidMode.swift in Sources */,
@@ -550,7 +550,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplink_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -587,7 +590,8 @@
 				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
@@ -604,7 +608,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplink_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -664,7 +671,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplinkTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -690,7 +701,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplinkTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
