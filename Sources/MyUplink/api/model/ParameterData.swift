@@ -16,20 +16,39 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  AlarmsPagedResponse.swift
+//  ParameterData.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 26.09.21.
+//  Created by Thomas Kausch on 13.10.21.
 //
 
 import Foundation
 
 
-public struct AlarmsPagedResponse: Decodable {
+public struct ParameterData: Decodable {
+ 
+    let category: String?
     
-    let page: Int
-    let itemsPerPage: Int
-    let numItems: Int
+    let parameterId: String?
     
-    let notifications: [Alarm]?
+    let parameterName: String?
+    
+    let parameterUnit: String?
+    
+    let writable: Bool
+    
+    let timestamp: Date
+    
+    let value: Double?
+    
+    let strValue: String?
+    
+    let smartHomeCategories: [String]?
+    
+    let minValue: Int?
+    
+    let maxValue: Int?
+    
+    let enumValues: [EnumValue]?
+    
 }

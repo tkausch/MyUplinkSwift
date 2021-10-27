@@ -29,5 +29,5 @@ import Foundation
 
 public struct AlarmStatus: Decodable {
     let status: AlarmState
-    let datetime: Date
+    let datetime: Int
 }

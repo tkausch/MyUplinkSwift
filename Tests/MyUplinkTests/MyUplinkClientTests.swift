@@ -33,13 +33,14 @@ class MyUplinkClientTests: XCTestCase {
     let mockHost = "d4d4753c-e3f7-4c2b-aecd-f9b96a227cd4.mock.pstmn.io"
 
     let systemId = "522235b0-4e15-46d5-a968-e28dffde203b"
+    let deviceId = "21050035-2021-2-24-20-1-11"
     
-    var myUplinkClient: MyUplinkClient!
+    var client: MyUplinkClient!
     var terminated: XCTestExpectation!
     
     
     override func setUpWithError() throws {
-        myUplinkClient = MyUplinkClient(host: mockHost)
+        client = MyUplinkClient(host: mockHost)
         terminated = XCTestExpectation(description: "Remote call must terminate!")
     }
     
@@ -86,23 +87,23 @@ class MyUplinkClientTests: XCTestCase {
 extension MyUplinkClientTests {
     
     func testSuccessfulPing() throws {
-        myUplinkClient.mockHttpStatus = .noContent
-        myUplinkClient.ping() { result in
+        client.mockHttpStatus = .noContent
+        client.ping() { result in
             self.assertSuccessfulRemoteCall(result)
         }
     }
     
     func testPingForbidden() throws {
-        myUplinkClient.mockHttpStatus = .forbidden
-        myUplinkClient.ping() { result in
+        client.mockHttpStatus = .forbidden
+        client.ping() { result in
             self.assertFailedRemoteCall(result, expected: .forbidden)
         }
     }
     
     
     func testPingUnauthorized() throws {
-        myUplinkClient.mockHttpStatus = .unauthorized
-        myUplinkClient.ping() { result in
+        client.mockHttpStatus = .unauthorized
+        client.ping() { result in
             self.assertFailedRemoteCall(result, expected: .unauthorized)
         }
     }
@@ -114,36 +115,36 @@ extension MyUplinkClientTests {
 extension MyUplinkClientTests {
     
     func testSystemsSuccessful() throws {
-        myUplinkClient.mockHttpStatus = .ok
-        myUplinkClient.systems() { result in
+        client.mockHttpStatus = .ok
+        client.systems() { result in
             self.assertSuccessfulRemoteCall(result)
         }
     }
     
     func testSystemsUnauthorized() throws {
-        myUplinkClient.mockHttpStatus = .unauthorized
-        myUplinkClient.systems() { result in
+        client.mockHttpStatus = .unauthorized
+        client.systems() { result in
             self.assertFailedRemoteCall(result, expected: .unauthorized)
         }
     }
     
     func testSystemsForbidden() throws {
-        myUplinkClient.mockHttpStatus = .forbidden
-        myUplinkClient.systems() { result in
+        client.mockHttpStatus = .forbidden
+        client.systems() { result in
             self.assertFailedRemoteCall(result, expected: .forbidden)
         }
     }
 
     func testSystemsInternalServerError() throws {
-        myUplinkClient.mockHttpStatus = .internalServerError
-        myUplinkClient.systems() { result in
+        client.mockHttpStatus = .internalServerError
+        client.systems() { result in
             self.assertFailedRemoteCall(result, expected: .internalServerError)
         }
     }
  
     func testSystemsServiceUavailableServerError() throws {
-        myUplinkClient.mockHttpStatus = .serviceUnavailable
-        myUplinkClient.systems() { result in
+        client.mockHttpStatus = .serviceUnavailable
+        client.systems() { result in
             self.assertFailedRemoteCall(result, expected: .serviceUnavailable)
             
             switch result {
@@ -168,22 +169,22 @@ extension MyUplinkClientTests {
 extension MyUplinkClientTests {
 
     func testSmartHomeModeSuccessful() throws {
-        myUplinkClient.mockHttpStatus = .ok
-        myUplinkClient.smartHomeMode(systemId: systemId) { result in
+        client.mockHttpStatus = .ok
+        client.smartHomeMode(systemId: systemId) { result in
             self.assertSuccessfulRemoteCall(result)
         }
     }
     
     func testSmartHomeModeUnauthorized() throws {
-        myUplinkClient.mockHttpStatus = .unauthorized
-        myUplinkClient.smartHomeMode(systemId: systemId) { result in
+        client.mockHttpStatus = .unauthorized
+        client.smartHomeMode(systemId: systemId) { result in
             self.assertFailedRemoteCall (result, expected: .unauthorized)
         }
     }
     
     func testSmartHomeModeForbidden() throws {
-        myUplinkClient.mockHttpStatus = .forbidden
-        myUplinkClient.smartHomeMode(systemId: systemId) { result in
+        client.mockHttpStatus = .forbidden
+        client.smartHomeMode(systemId: systemId) { result in
             self.assertFailedRemoteCall(result, expected: .forbidden)
         }
     }
@@ -195,24 +196,86 @@ extension MyUplinkClientTests {
 extension  MyUplinkClientTests {
     
     func testNotificationsSuccessful() throws {
-        myUplinkClient.mockHttpStatus = .ok
-        myUplinkClient.notifications(systemId: systemId) { result in
+        client.mockHttpStatus = .ok
+        client.notifications(systemId: systemId) { result in
+            self.assertSuccessfulRemoteCall(result)
+        }
+    }
+    
+    func testActiveNotificationsSuccessful() throws {
+        client.mockHttpStatus = .ok
+        client.activeNotifications(systemId: systemId) { result in
             self.assertSuccessfulRemoteCall(result)
         }
     }
     
     func testNotificationsForbidden() throws {
-        myUplinkClient.mockHttpStatus = .forbidden
-        myUplinkClient.notifications(systemId: systemId) { result in
+        client.mockHttpStatus = .forbidden
+        client.notifications(systemId: systemId) { result in
             self.assertFailedRemoteCall(result, expected: .forbidden)
         }
     }
     
     func testNotificationsUnauthorized() throws {
-        myUplinkClient.mockHttpStatus = .unauthorized
-        myUplinkClient.notifications(systemId: systemId) { result in
+        client.mockHttpStatus = .unauthorized
+        client.notifications(systemId: systemId) { result in
             self.assertFailedRemoteCall(result, expected: .unauthorized)
         }
     }
     
+}
+
+
+// MARK:  DeviceInfo Tests
+
+extension  MyUplinkClientTests {
+    
+    func testDeviceINfoSuccessful() throws {
+        client.mockHttpStatus = .ok
+        client.deviceInfo(deviceId: deviceId) { result in
+            self.assertSuccessfulRemoteCall(result)
+        }
+    }
+    
+    func testDeviceInfoForbidden() throws {
+        client.mockHttpStatus = .forbidden
+        client.deviceInfo(deviceId: deviceId) { result in
+            self.assertFailedRemoteCall(result, expected: .forbidden)
+        }
+    }
+    
+    func testDeviceInfoUnauthorized() throws {
+        client.mockHttpStatus = .unauthorized
+        client.deviceInfo(deviceId: deviceId) { result in
+            self.assertFailedRemoteCall(result, expected: .unauthorized)
+        }
+    }
+    
+}
+
+
+// MARK:  DeviceInfo Tests
+
+
+extension MyUplinkClientTests {
+    
+    func testDevicePoints() throws {
+        client.mockHttpStatus = .ok
+        client.devicePoints(deviceId: deviceId) { result in
+            self.assertSuccessfulRemoteCall(result)
+        }
+    }
+    
+}
+
+// MARK:  Premium
+
+extension MyUplinkClientTests {
+    
+    func testPremiumSubscriptions() throws {
+        client.mockHttpStatus = .ok
+        client.premium(systemId: systemId) { result in
+            self.assertSuccessfulRemoteCall(result)
+        }
+    }
 }

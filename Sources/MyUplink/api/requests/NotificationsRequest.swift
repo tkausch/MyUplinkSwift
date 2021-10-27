@@ -28,13 +28,9 @@ import Foundation
 struct NotificationsRequest: MyUplinkRequest {
     
     typealias ResponseObject = AlarmsPagedResponse
-    typealias RequestObject  = Nil
-   
-    var mockHttpStatus: HTTPStatusCode?
     
-    var systemId: String
-    var language: Language
-    var requestObject = Nil()
+    let systemId: String
+    let language: Language
     
     var endpoint: Endpoint {
         return MyUplinkEndpoints.notifications(systemId: systemId)

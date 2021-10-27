@@ -38,7 +38,7 @@ public struct Alarm: Decodable {
     // The Alarm status
     let status: AlarmState
     /// Date of the creation.    let status: AlarmStatusCode
-    let creationDate: Date?
+    let createdDatetime: Date?
     /// Status history.
     let statusHistory: [AlarmStatus]?
     /// Localized alarm title.

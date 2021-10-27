@@ -16,20 +16,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  AlarmsPagedResponse.swift
+//  AidModeResponse.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 26.09.21.
+//  Created by Thomas Kausch on 20.10.21.
 //
 
 import Foundation
 
 
-public struct AlarmsPagedResponse: Decodable {
-    
-    let page: Int
-    let itemsPerPage: Int
-    let numItems: Int
-    
-    let notifications: [Alarm]?
+public struct AidModeResponse: Decodable {
+    let aidMode: AidMode
 }

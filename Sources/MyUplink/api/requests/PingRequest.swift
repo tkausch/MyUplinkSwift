@@ -27,10 +27,8 @@ import Foundation
 struct PingRequest: MyUplinkRequest {
     
     typealias ResponseObject = Nil
-    typealias RequestObject  = Nil
     
-    var language: Language
-    var requestObject = Nil()
+    let language: Language = .en
     
     var endpoint: Endpoint {
         return MyUplinkEndpoints.ping

@@ -27,15 +27,11 @@ import Foundation
 struct SystemsRequest: MyUplinkRequest {
     
     typealias ResponseObject = SystemsPagedResponse
-    typealias RequestObject  = Nil
-   
-    var mockHttpStatus: HTTPStatusCode?
     
-    var language: Language
-    var requestObject = Nil()
+    let language: Language
     
     var endpoint: Endpoint {
-        return MyUplinkEndpoints.me
+        return MyUplinkEndpoints.systems
     }
     
 }

@@ -42,7 +42,7 @@ class ApiEndpointTests: XCTestCase {
     }
     
     func testAllSystemsEndpoint() throws {
-        let allSystems = MyUplinkEndpoints.me
+        let allSystems = MyUplinkEndpoints.systems
         XCTAssertEqual(allSystems.path, "/\(version)/systems/me")
         XCTAssertEqual(allSystems.method, .GET)
     }
@@ -70,7 +70,7 @@ class ApiEndpointTests: XCTestCase {
  
     func testDatapointEndpont() throws {
         let deviceId = "21050035-2021-2-24-20-1-11"
-        let dataPoints = MyUplinkEndpoints.dataPoints(deviceId: deviceId)
+        let dataPoints = MyUplinkEndpoints.devicePoints(deviceId: deviceId)
         XCTAssertEqual(dataPoints.path,  "/\(version)/devices/\(deviceId)/points")
         XCTAssertEqual(dataPoints.method, .GET)
     }

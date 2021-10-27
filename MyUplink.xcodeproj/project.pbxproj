@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -32,12 +32,26 @@
 		B60ED5622700A34F005171FF /* AlarmSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED5612700A34F005171FF /* AlarmSeverity.swift */; };
 		B60ED5642700A478005171FF /* AlarmsPagedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED5632700A478005171FF /* AlarmsPagedResponse.swift */; };
 		B60ED5662700A7B2005171FF /* NotificationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60ED5652700A7B2005171FF /* NotificationsRequest.swift */; };
+		B61B9C6427207BD80025D43C /* AidMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C6327207BD80025D43C /* AidMode.swift */; };
+		B61B9C6627207CFB0025D43C /* AidModeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C6527207CFB0025D43C /* AidModeResponse.swift */; };
+		B61B9C6827207DC40025D43C /* AidModeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C6727207DC40025D43C /* AidModeRequest.swift */; };
+		B61B9C6A272092D20025D43C /* ActiveNotificationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C69272092D20025D43C /* ActiveNotificationsRequest.swift */; };
+		B61B9C6D272097820025D43C /* PremiumFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C6C272097820025D43C /* PremiumFeature.swift */; };
+		B61B9C6F27209ABD0025D43C /* DevicePremiumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C6E27209ABD0025D43C /* DevicePremiumResponse.swift */; };
+		B61B9C7127209BCD0025D43C /* PremiumFeatureSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C7027209BCD0025D43C /* PremiumFeatureSubscription.swift */; };
+		B61B9C7327209CA30025D43C /* DevicePremiumRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C7227209CA30025D43C /* DevicePremiumRequest.swift */; };
 		B63A080726F38DCE003776EC /* UplinkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A080626F38DCE003776EC /* UplinkError.swift */; };
+		B66B4131271EBE5500A11B0A /* EnumValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66B4130271EBE5500A11B0A /* EnumValue.swift */; };
+		B66B4133271EC17100A11B0A /* DevicePointsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66B4132271EC17100A11B0A /* DevicePointsRequest.swift */; };
+		B67EA2DF2703A2B000C34587 /* DeviceInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EA2DE2703A2B000C34587 /* DeviceInfoResponse.swift */; };
+		B67EA2E12703A3B100C34587 /* Firmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EA2E02703A3B100C34587 /* Firmware.swift */; };
+		B67EA2E32703A4F700C34587 /* DeviceInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67EA2E22703A4F700C34587 /* DeviceInfoRequest.swift */; };
 		B68C0FA426E7421A00D62FB7 /* SystemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA326E7421A00D62FB7 /* SystemsRequest.swift */; };
 		B68C0FA826E742D800D62FB7 /* SystemsPagedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA726E742D800D62FB7 /* SystemsPagedResponse.swift */; };
 		B68C0FAA26E743B400D62FB7 /* SystemWithDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FA926E743B400D62FB7 /* SystemWithDevices.swift */; };
 		B68C0FAD26E7449300D62FB7 /* SystemDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAC26E7449300D62FB7 /* SystemDevice.swift */; };
 		B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAE26E744EA00D62FB7 /* Product.swift */; };
+		B69B671A27170E6200179F4F /* ParameterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B671927170E6200179F4F /* ParameterData.swift */; };
 		B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */; };
 		OBJ_42 /* MyUplinkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* MyUplinkClient.swift */; };
 		OBJ_43 /* MyUplinkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyUplinkEndpoints.swift */; };
@@ -91,12 +105,26 @@
 		B60ED5612700A34F005171FF /* AlarmSeverity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSeverity.swift; sourceTree = "<group>"; };
 		B60ED5632700A478005171FF /* AlarmsPagedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsPagedResponse.swift; sourceTree = "<group>"; };
 		B60ED5652700A7B2005171FF /* NotificationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsRequest.swift; sourceTree = "<group>"; };
+		B61B9C6327207BD80025D43C /* AidMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AidMode.swift; sourceTree = "<group>"; };
+		B61B9C6527207CFB0025D43C /* AidModeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AidModeResponse.swift; sourceTree = "<group>"; };
+		B61B9C6727207DC40025D43C /* AidModeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AidModeRequest.swift; sourceTree = "<group>"; };
+		B61B9C69272092D20025D43C /* ActiveNotificationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNotificationsRequest.swift; sourceTree = "<group>"; };
+		B61B9C6C272097820025D43C /* PremiumFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumFeature.swift; sourceTree = "<group>"; };
+		B61B9C6E27209ABD0025D43C /* DevicePremiumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePremiumResponse.swift; sourceTree = "<group>"; };
+		B61B9C7027209BCD0025D43C /* PremiumFeatureSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumFeatureSubscription.swift; sourceTree = "<group>"; };
+		B61B9C7227209CA30025D43C /* DevicePremiumRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePremiumRequest.swift; sourceTree = "<group>"; };
 		B63A080626F38DCE003776EC /* UplinkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UplinkError.swift; sourceTree = "<group>"; };
+		B66B4130271EBE5500A11B0A /* EnumValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumValue.swift; sourceTree = "<group>"; };
+		B66B4132271EC17100A11B0A /* DevicePointsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePointsRequest.swift; sourceTree = "<group>"; };
+		B67EA2DE2703A2B000C34587 /* DeviceInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoResponse.swift; sourceTree = "<group>"; };
+		B67EA2E02703A3B100C34587 /* Firmware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firmware.swift; sourceTree = "<group>"; };
+		B67EA2E22703A4F700C34587 /* DeviceInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoRequest.swift; sourceTree = "<group>"; };
 		B68C0FA326E7421A00D62FB7 /* SystemsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsRequest.swift; sourceTree = "<group>"; };
 		B68C0FA726E742D800D62FB7 /* SystemsPagedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsPagedResponse.swift; sourceTree = "<group>"; };
 		B68C0FA926E743B400D62FB7 /* SystemWithDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemWithDevices.swift; sourceTree = "<group>"; };
 		B68C0FAC26E7449300D62FB7 /* SystemDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDevice.swift; sourceTree = "<group>"; };
 		B68C0FAE26E744EA00D62FB7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B69B671927170E6200179F4F /* ParameterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterData.swift; sourceTree = "<group>"; };
 		B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkRequest.swift; sourceTree = "<group>"; };
 		"MyUplink::MyUplink::Product" /* MyUplink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyUplink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MyUplink::MyUplinkTests::Product" /* MyUplinkTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyUplinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,12 +176,23 @@
 			path = Postman;
 			sourceTree = "<group>";
 		};
+		B61B9C6B272095820025D43C /* endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* MyUplinkEndpoints.swift */,
+			);
+			path = endpoints;
+			sourceTree = "<group>";
+		};
 		B68C0FA626E7427A00D62FB7 /* responses */ = {
 			isa = PBXGroup;
 			children = (
+				B67EA2DE2703A2B000C34587 /* DeviceInfoResponse.swift */,
 				B68C0FA726E742D800D62FB7 /* SystemsPagedResponse.swift */,
 				B60ED5532700907F005171FF /* SmartHomeModeResponse.swift */,
 				B60ED5632700A478005171FF /* AlarmsPagedResponse.swift */,
+				B61B9C6527207CFB0025D43C /* AidModeResponse.swift */,
+				B61B9C6E27209ABD0025D43C /* DevicePremiumResponse.swift */,
 			);
 			path = responses;
 			sourceTree = "<group>";
@@ -172,6 +211,12 @@
 				B60ED55D2700A200005171FF /* AlarmState.swift */,
 				B60ED55F2700A281005171FF /* AlarmStatus.swift */,
 				B60ED5612700A34F005171FF /* AlarmSeverity.swift */,
+				B67EA2E02703A3B100C34587 /* Firmware.swift */,
+				B69B671927170E6200179F4F /* ParameterData.swift */,
+				B66B4130271EBE5500A11B0A /* EnumValue.swift */,
+				B61B9C6327207BD80025D43C /* AidMode.swift */,
+				B61B9C6C272097820025D43C /* PremiumFeature.swift */,
+				B61B9C7027209BCD0025D43C /* PremiumFeatureSubscription.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -184,6 +229,11 @@
 				B60ED55127008FC6005171FF /* SmartHomeModeRequest.swift */,
 				B60ED5652700A7B2005171FF /* NotificationsRequest.swift */,
 				B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */,
+				B67EA2E22703A4F700C34587 /* DeviceInfoRequest.swift */,
+				B66B4132271EC17100A11B0A /* DevicePointsRequest.swift */,
+				B61B9C6727207DC40025D43C /* AidModeRequest.swift */,
+				B61B9C69272092D20025D43C /* ActiveNotificationsRequest.swift */,
+				B61B9C7227209CA30025D43C /* DevicePremiumRequest.swift */,
 			);
 			path = requests;
 			sourceTree = "<group>";
@@ -195,6 +245,7 @@
 				OBJ_16 /* Client.swift */,
 				OBJ_18 /* ServiceError.swift */,
 				OBJ_19 /* Request.swift */,
+				OBJ_17 /* HttpStatusCode.swift */,
 				OBJ_20 /* util */,
 			);
 			path = framework;
@@ -203,7 +254,6 @@
 		OBJ_20 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* HttpStatusCode.swift */,
 				OBJ_21 /* Logger.swift */,
 				OBJ_22 /* Timestamp.swift */,
 			);
@@ -272,8 +322,9 @@
 		OBJ_8 /* MyUplink */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* api */,
+				OBJ_10 /* MyUplinkClient.swift */,
 				OBJ_14 /* framework */,
+				OBJ_9 /* api */,
 				OBJ_23 /* oauth */,
 			);
 			name = MyUplink;
@@ -283,8 +334,7 @@
 		OBJ_9 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_10 /* MyUplinkClient.swift */,
-				OBJ_11 /* MyUplinkEndpoints.swift */,
+				B61B9C6B272095820025D43C /* endpoints */,
 				B68C0FAB26E7447300D62FB7 /* model */,
 				B68C0FA626E7427A00D62FB7 /* responses */,
 				OBJ_12 /* requests */,
@@ -352,7 +402,7 @@
 				LastUpgradeCheck = 9999;
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "MyUplink" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -376,37 +426,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				OBJ_45 /* Endpoint.swift in Sources */,
+				B61B9C6F27209ABD0025D43C /* DevicePremiumResponse.swift in Sources */,
+				B61B9C7127209BCD0025D43C /* PremiumFeatureSubscription.swift in Sources */,
 				B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */,
+				B67EA2E32703A4F700C34587 /* DeviceInfoRequest.swift in Sources */,
 				B60ED55E2700A200005171FF /* AlarmState.swift in Sources */,
+				B66B4131271EBE5500A11B0A /* EnumValue.swift in Sources */,
 				B60ED55827009787005171FF /* SecurityLevel.swift in Sources */,
 				OBJ_42 /* MyUplinkClient.swift in Sources */,
 				OBJ_43 /* MyUplinkEndpoints.swift in Sources */,
 				B68C0FAA26E743B400D62FB7 /* SystemWithDevices.swift in Sources */,
 				B60ED5642700A478005171FF /* AlarmsPagedResponse.swift in Sources */,
 				B68C0FAD26E7449300D62FB7 /* SystemDevice.swift in Sources */,
+				B69B671A27170E6200179F4F /* ParameterData.swift in Sources */,
 				OBJ_44 /* PingRequest.swift in Sources */,
 				B68C0FA826E742D800D62FB7 /* SystemsPagedResponse.swift in Sources */,
-				OBJ_45 /* Endpoint.swift in Sources */,
+				B61B9C7327209CA30025D43C /* DevicePremiumRequest.swift in Sources */,
 				B68C0FA426E7421A00D62FB7 /* SystemsRequest.swift in Sources */,
 				OBJ_46 /* Client.swift in Sources */,
+				B61B9C6427207BD80025D43C /* AidMode.swift in Sources */,
 				B60ED55C27009F85005171FF /* Alarm.swift in Sources */,
 				B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */,
 				B60ED5622700A34F005171FF /* AlarmSeverity.swift in Sources */,
+				B67EA2E12703A3B100C34587 /* Firmware.swift in Sources */,
 				B60ED55627009633005171FF /* SmartHomeMode.swift in Sources */,
+				B67EA2DF2703A2B000C34587 /* DeviceInfoResponse.swift in Sources */,
 				OBJ_47 /* HttpStatusCode.swift in Sources */,
 				OBJ_48 /* ServiceError.swift in Sources */,
 				OBJ_49 /* Request.swift in Sources */,
 				B60ED5602700A281005171FF /* AlarmStatus.swift in Sources */,
 				OBJ_50 /* Logger.swift in Sources */,
 				OBJ_51 /* Timestamp.swift in Sources */,
+				B66B4133271EC17100A11B0A /* DevicePointsRequest.swift in Sources */,
+				B61B9C6A272092D20025D43C /* ActiveNotificationsRequest.swift in Sources */,
 				OBJ_52 /* GrantType.swift in Sources */,
 				B60ED5662700A7B2005171FF /* NotificationsRequest.swift in Sources */,
+				B61B9C6D272097820025D43C /* PremiumFeature.swift in Sources */,
 				OBJ_53 /* OAuthAPI.swift in Sources */,
 				B63A080726F38DCE003776EC /* UplinkError.swift in Sources */,
+				B61B9C6627207CFB0025D43C /* AidModeResponse.swift in Sources */,
 				OBJ_54 /* OAuthEndpoints.swift in Sources */,
 				B60ED5542700907F005171FF /* SmartHomeModeResponse.swift in Sources */,
 				B60ED55A27009866005171FF /* DeviceConnectionState.swift in Sources */,
 				B60ED55227008FC6005171FF /* SmartHomeModeRequest.swift in Sources */,
+				B61B9C6827207DC40025D43C /* AidModeRequest.swift in Sources */,
 				OBJ_55 /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,7 +550,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplink_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -523,7 +590,8 @@
 				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
@@ -540,7 +608,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplink_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -600,7 +671,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplinkTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -626,7 +701,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MyUplink.xcodeproj/MyUplinkTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";

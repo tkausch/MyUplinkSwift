@@ -31,13 +31,16 @@ public struct Nil: Encodable, Decodable {
 public protocol Request {
     
     associatedtype ResponseObject: Decodable
-    associatedtype RequestObject: Encodable
+    
+    // Note: Enable when we have PUT & POST requests
+    // associatedtype RequestObject: Encodable
+    // var requestObject: RequestObject { get }
     
     var httpHeaders: [String : String] { get }
     var queryParameters: [String:String]? { get }
     var endpoint: Endpoint { get }
     
-    var requestObject: RequestObject { get }
+    
     
 }
 

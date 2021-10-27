@@ -16,20 +16,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
 //
-//  AlarmsPagedResponse.swift
+//
+//  Firmware.swift
 //  MyUplink
 //
-//  Created by Thomas Kausch on 26.09.21.
+//  Created by Thomas Kausch on 28.09.21.
 //
 
 import Foundation
 
 
-public struct AlarmsPagedResponse: Decodable {
+public struct Firmware: Decodable {
     
-    let page: Int
-    let itemsPerPage: Int
-    let numItems: Int
-    
-    let notifications: [Alarm]?
+    /// Current Firmware Version
+    let currentFwVersion: String?
+    /// Desired Firmware Version
+    let desiredFwVersion: String?
 }
