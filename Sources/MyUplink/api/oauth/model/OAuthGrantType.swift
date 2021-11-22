@@ -1,5 +1,4 @@
 //
-//
 //  Copyright (C) 2021 Thomas Kausch.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -15,31 +14,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
+//  GrantType.swift
+//  MyUplink
 //
-//  OAuthEndpoint.swift
-//  myuplink
-//
-//  Created by Thomas Kausch on 22.06.21.
+//  Created by Thomas Kausch on 19.11.21.
 //
 
 import Foundation
 
-enum OAuthEndpoints: Endpoint {
-
-    case oauthToken
+public enum OAuthGrantType: String, Encodable {
+    case authorizationCode
+    case clientCredentials
     
-    var method: HttpMethod {
-        switch self {
-        case .oauthToken:
-            return .GET
-        }
+    private enum CodingKeys : String, CodingKey {
+     case authorizationCode = "authorization_code",
+          clientCredentials = "client_credentials"
+        
     }
     
-    var path: String {
-        switch self {
-        case .oauthToken:
-            return "/oauth/token"
-        }
-    }
 }
-

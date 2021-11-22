@@ -33,14 +33,12 @@ public typealias ResultCompletion<V, E: Error> = (Result<V, E>) -> Void
 
 public class Client {
     
-    private let host: String
+    let host: String
     private let timeout: TimeInterval
     private let urlSession: URLSession
 
-    
     // used for mocking with postman selecting postman example
     var mockHttpStatus: HTTPStatusCode?
-    
     
     public init(host: String, session: URLSession = URLSession.shared, timeout: TimeInterval = 10.0) {
         self.host = host
@@ -60,7 +58,6 @@ public class Client {
         }
     }
     
-    
     private func send<T: Request>(request: T, completion: @escaping ResultCompletion<T.ResponseObject, ServiceError>)  {
 
         // construct url from endpoint
@@ -77,7 +74,8 @@ public class Client {
         var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: timeout)
 
         // Set http method used for the corresponding endpoint.
-        urlRequest.httpMethod = request.endpoint.method.rawValue
+        let httpMethod = request.endpoint.method.rawValue
+        urlRequest.httpMethod = httpMethod
         
         // Add http header values for request...
         // Note: httpHeaders is a computed property and can be overriden by subclass
@@ -89,17 +87,18 @@ public class Client {
             urlRequest.setValue("\(httpStatusCode.rawValue)", forHTTPHeaderField: "x-mock-response-code")
         }
         
-        // Only a json request body for POST and PUT method. GET, DELETE do not have a body.
-//        if urlRequest.httpMethod == "POST" || urlRequest.httpMethod == "PUT" {
-//            do {
-//                urlRequest.httpBody = try JSONEncoder().encode(request.requestObject)
-//            } catch {
-//                Log.shared.error("Could not marshall request: \(urlRequest)")
-//                dispatchMainAsync {
-//                    completion(.failure(ServiceError.dataFormatError(error)))
-//                }
-//            }
-//        }
+        // Check if this is a POST or PUT request
+        if ["POST","PUT"].contains(httpMethod) {
+            
+            do {
+                urlRequest.httpBody = try JSONEncoder().encode(request.requestObject)
+            } catch {
+                Log.shared.error("Could not marshall request: \(urlRequest)")
+                dispatchMainAsync {
+                    completion(.failure(ServiceError.dataFormatError(error)))
+                }
+            }
+        }
         
         let task = urlSession.dataTask(with: urlRequest) { data, response, error in
             

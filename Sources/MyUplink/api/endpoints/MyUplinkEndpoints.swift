@@ -40,6 +40,9 @@ enum MyUplinkEndpoints: Endpoint {
     case systemDetails(systemId: String)
     case systems
     
+    /// Identity OAuth
+    case oauthToken
+
     
     /// Version number of MyUplink rest API
     var version: String {
@@ -62,6 +65,8 @@ enum MyUplinkEndpoints: Endpoint {
              .systemDetails(systemId: _),
              .smartHomeMode(systemId: _):
             return .GET
+        case .oauthToken:
+            return .POST
         }
     }
     
@@ -91,6 +96,8 @@ enum MyUplinkEndpoints: Endpoint {
             return "/\(version)/systems/\(systemId)"
         case .smartHomeMode(systemId: let systemId):
             return "/\(version)/systems/\(systemId)/smart-home-mode"
+        case .oauthToken:
+            return "/oauth/token"
         }
     }
     

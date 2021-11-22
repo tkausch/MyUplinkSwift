@@ -27,7 +27,7 @@ import XCTest
 @testable import MyUplink
 
 
-class ApiEndpointTests: XCTestCase {
+class MyUplinkEndpointTests: XCTestCase {
 
     let version = "v2"
 

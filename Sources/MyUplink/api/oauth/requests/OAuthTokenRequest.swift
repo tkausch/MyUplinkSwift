@@ -1,5 +1,4 @@
 //
-//
 //  Copyright (C) 2021 Thomas Kausch.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -15,23 +14,34 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
+//  TokenRequest.swift
+//  MyUplink
 //
-//  PingRequest.swift
-//  myuplink
-//
-//  Created by Thomas Kausch on 05.07.21.
+//  Created by Thomas Kausch on 19.11.21.
 //
 
 import Foundation
 
-struct PingRequest: MyUplinkRequest {
+
+
+struct OAuthTokenRequest: MyUplinkRequest {
     
-    typealias ResponseObject  = Nil
+    typealias ResponseObject = OAuthToken
     
     let language: Language = .en
     
+    var requestObject: OAuthTokenParameter
+    
     var endpoint: Endpoint {
-        return MyUplinkEndpoints.ping
+        return MyUplinkEndpoints.oauthToken
+    }
+    
+    init(grantType: OAuthGrantType, clientId: String, clientSecret: String, code: String?, redirectUrl: URL?) {
+        self.requestObject = OAuthTokenParameter(grantType: grantType,
+                                                 code: code,
+                                                 redirectUri: redirectUrl?.absoluteString,
+                                                 clientId: clientId,
+                                                 clientSecret: clientSecret)
     }
     
 }
