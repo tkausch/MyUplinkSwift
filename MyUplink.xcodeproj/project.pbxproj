@@ -52,7 +52,16 @@
 		B68C0FAD26E7449300D62FB7 /* SystemDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAC26E7449300D62FB7 /* SystemDevice.swift */; };
 		B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68C0FAE26E744EA00D62FB7 /* Product.swift */; };
 		B69B671A27170E6200179F4F /* ParameterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B671927170E6200179F4F /* ParameterData.swift */; };
+		B6D630ED27478FAD00BEF9D2 /* OAuthTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D630EC27478FAD00BEF9D2 /* OAuthTokenRequest.swift */; };
+		B6D630F02747916100BEF9D2 /* OAuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D630EF2747916100BEF9D2 /* OAuthToken.swift */; };
+		B6D630F2274791C600BEF9D2 /* OAuthGrantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D630F1274791C600BEF9D2 /* OAuthGrantType.swift */; };
+		B6D630F5274799CC00BEF9D2 /* OAuthTokenParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D630F4274799CC00BEF9D2 /* OAuthTokenParameter.swift */; };
+		B6D630FC2747B4CA00BEF9D2 /* OAuthEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D630FB2747B4CA00BEF9D2 /* OAuthEndpoints.swift */; };
+		B6D631002747B56600BEF9D2 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D630FF2747B56600BEF9D2 /* OAuthClient.swift */; };
+		B6D631022747B98400BEF9D2 /* OAuthConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D631012747B98400BEF9D2 /* OAuthConfiguration.swift */; };
+		B6D631042747E7D100BEF9D2 /* OAuthClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D631032747E7D100BEF9D2 /* OAuthClientTests.swift */; };
 		B6EA948E26EA7EE2000F8033 /* MyUplinkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */; };
+		B6F632E52734464B001A986A /* OAuthUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F632E42734464B001A986A /* OAuthUtils.swift */; };
 		OBJ_42 /* MyUplinkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* MyUplinkClient.swift */; };
 		OBJ_43 /* MyUplinkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MyUplinkEndpoints.swift */; };
 		OBJ_44 /* PingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* PingRequest.swift */; };
@@ -63,12 +72,8 @@
 		OBJ_49 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Request.swift */; };
 		OBJ_50 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Logger.swift */; };
 		OBJ_51 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Timestamp.swift */; };
-		OBJ_52 /* GrantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* GrantType.swift */; };
-		OBJ_53 /* OAuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* OAuthAPI.swift */; };
-		OBJ_54 /* OAuthEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* OAuthEndpoints.swift */; };
-		OBJ_55 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Token.swift */; };
 		OBJ_62 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_73 /* ApiEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ApiEndpointTests.swift */; };
+		OBJ_73 /* MyUplinkEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* MyUplinkEndpointTests.swift */; };
 		OBJ_74 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* EndpointTests.swift */; };
 		OBJ_75 /* MyUplinkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* MyUplinkClientTests.swift */; };
 		OBJ_76 /* TimestampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* TimestampTests.swift */; };
@@ -125,7 +130,16 @@
 		B68C0FAC26E7449300D62FB7 /* SystemDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDevice.swift; sourceTree = "<group>"; };
 		B68C0FAE26E744EA00D62FB7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B69B671927170E6200179F4F /* ParameterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterData.swift; sourceTree = "<group>"; };
+		B6D630EC27478FAD00BEF9D2 /* OAuthTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenRequest.swift; sourceTree = "<group>"; };
+		B6D630EF2747916100BEF9D2 /* OAuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthToken.swift; sourceTree = "<group>"; };
+		B6D630F1274791C600BEF9D2 /* OAuthGrantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthGrantType.swift; sourceTree = "<group>"; };
+		B6D630F4274799CC00BEF9D2 /* OAuthTokenParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenParameter.swift; sourceTree = "<group>"; };
+		B6D630FB2747B4CA00BEF9D2 /* OAuthEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthEndpoints.swift; sourceTree = "<group>"; };
+		B6D630FF2747B56600BEF9D2 /* OAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
+		B6D631012747B98400BEF9D2 /* OAuthConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthConfiguration.swift; sourceTree = "<group>"; };
+		B6D631032747E7D100BEF9D2 /* OAuthClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthClientTests.swift; sourceTree = "<group>"; };
 		B6EA948D26EA7EE2000F8033 /* MyUplinkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkRequest.swift; sourceTree = "<group>"; };
+		B6F632E42734464B001A986A /* OAuthUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthUtils.swift; sourceTree = "<group>"; };
 		"MyUplink::MyUplink::Product" /* MyUplink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyUplink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MyUplink::MyUplinkTests::Product" /* MyUplinkTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyUplinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* MyUplinkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkClient.swift; sourceTree = "<group>"; };
@@ -138,11 +152,7 @@
 		OBJ_19 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		OBJ_22 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
-		OBJ_24 /* GrantType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrantType.swift; sourceTree = "<group>"; };
-		OBJ_25 /* OAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthAPI.swift; sourceTree = "<group>"; };
-		OBJ_26 /* OAuthEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthEndpoints.swift; sourceTree = "<group>"; };
-		OBJ_27 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		OBJ_30 /* ApiEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpointTests.swift; sourceTree = "<group>"; };
+		OBJ_30 /* MyUplinkEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkEndpointTests.swift; sourceTree = "<group>"; };
 		OBJ_31 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		OBJ_32 /* MyUplinkClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUplinkClientTests.swift; sourceTree = "<group>"; };
 		OBJ_33 /* TimestampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampTests.swift; sourceTree = "<group>"; };
@@ -221,6 +231,69 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		B6D630F627479A6C00BEF9D2 /* oauth */ = {
+			isa = PBXGroup;
+			children = (
+				B6D630FE2747B55300BEF9D2 /* client */,
+				B6D630FD2747B4D100BEF9D2 /* endpoints */,
+				B6D630F827479A8200BEF9D2 /* requests */,
+				B6D630F727479A7700BEF9D2 /* responses */,
+				B6D630F927479A8F00BEF9D2 /* model */,
+				B6D630FA2747B13F00BEF9D2 /* utils */,
+			);
+			path = oauth;
+			sourceTree = "<group>";
+		};
+		B6D630F727479A7700BEF9D2 /* responses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = responses;
+			sourceTree = "<group>";
+		};
+		B6D630F827479A8200BEF9D2 /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				B6D630EC27478FAD00BEF9D2 /* OAuthTokenRequest.swift */,
+				B6D630F4274799CC00BEF9D2 /* OAuthTokenParameter.swift */,
+			);
+			path = requests;
+			sourceTree = "<group>";
+		};
+		B6D630F927479A8F00BEF9D2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B6D630EF2747916100BEF9D2 /* OAuthToken.swift */,
+				B6D630F1274791C600BEF9D2 /* OAuthGrantType.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B6D630FA2747B13F00BEF9D2 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B6F632E42734464B001A986A /* OAuthUtils.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		B6D630FD2747B4D100BEF9D2 /* endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				B6D630FB2747B4CA00BEF9D2 /* OAuthEndpoints.swift */,
+			);
+			path = endpoints;
+			sourceTree = "<group>";
+		};
+		B6D630FE2747B55300BEF9D2 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				B6D630FF2747B56600BEF9D2 /* OAuthClient.swift */,
+				B6D631012747B98400BEF9D2 /* OAuthConfiguration.swift */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
 		OBJ_12 /* requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,17 +333,6 @@
 			path = util;
 			sourceTree = "<group>";
 		};
-		OBJ_23 /* oauth */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_24 /* GrantType.swift */,
-				OBJ_25 /* OAuthAPI.swift */,
-				OBJ_26 /* OAuthEndpoints.swift */,
-				OBJ_27 /* Token.swift */,
-			);
-			path = oauth;
-			sourceTree = "<group>";
-		};
 		OBJ_28 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,10 +344,11 @@
 		OBJ_29 /* MyUplinkTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_30 /* ApiEndpointTests.swift */,
+				OBJ_30 /* MyUplinkEndpointTests.swift */,
 				OBJ_31 /* EndpointTests.swift */,
 				OBJ_32 /* MyUplinkClientTests.swift */,
 				OBJ_33 /* TimestampTests.swift */,
+				B6D631032747E7D100BEF9D2 /* OAuthClientTests.swift */,
 			);
 			name = MyUplinkTests;
 			path = Tests/MyUplinkTests;
@@ -322,10 +385,8 @@
 		OBJ_8 /* MyUplink */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_10 /* MyUplinkClient.swift */,
 				OBJ_14 /* framework */,
 				OBJ_9 /* api */,
-				OBJ_23 /* oauth */,
 			);
 			name = MyUplink;
 			path = Sources/MyUplink;
@@ -334,6 +395,8 @@
 		OBJ_9 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_10 /* MyUplinkClient.swift */,
+				B6D630F627479A6C00BEF9D2 /* oauth */,
 				B61B9C6B272095820025D43C /* endpoints */,
 				B68C0FAB26E7447300D62FB7 /* model */,
 				B68C0FA626E7427A00D62FB7 /* responses */,
@@ -431,17 +494,24 @@
 				B61B9C7127209BCD0025D43C /* PremiumFeatureSubscription.swift in Sources */,
 				B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */,
 				B67EA2E32703A4F700C34587 /* DeviceInfoRequest.swift in Sources */,
+				B6D630ED27478FAD00BEF9D2 /* OAuthTokenRequest.swift in Sources */,
+				B6D630F5274799CC00BEF9D2 /* OAuthTokenParameter.swift in Sources */,
 				B60ED55E2700A200005171FF /* AlarmState.swift in Sources */,
 				B66B4131271EBE5500A11B0A /* EnumValue.swift in Sources */,
+				B6F632E52734464B001A986A /* OAuthUtils.swift in Sources */,
+				B6D631022747B98400BEF9D2 /* OAuthConfiguration.swift in Sources */,
 				B60ED55827009787005171FF /* SecurityLevel.swift in Sources */,
 				OBJ_42 /* MyUplinkClient.swift in Sources */,
 				OBJ_43 /* MyUplinkEndpoints.swift in Sources */,
 				B68C0FAA26E743B400D62FB7 /* SystemWithDevices.swift in Sources */,
+				B6D631002747B56600BEF9D2 /* OAuthClient.swift in Sources */,
 				B60ED5642700A478005171FF /* AlarmsPagedResponse.swift in Sources */,
+				B6D630F02747916100BEF9D2 /* OAuthToken.swift in Sources */,
 				B68C0FAD26E7449300D62FB7 /* SystemDevice.swift in Sources */,
 				B69B671A27170E6200179F4F /* ParameterData.swift in Sources */,
 				OBJ_44 /* PingRequest.swift in Sources */,
 				B68C0FA826E742D800D62FB7 /* SystemsPagedResponse.swift in Sources */,
+				B6D630FC2747B4CA00BEF9D2 /* OAuthEndpoints.swift in Sources */,
 				B61B9C7327209CA30025D43C /* DevicePremiumRequest.swift in Sources */,
 				B68C0FA426E7421A00D62FB7 /* SystemsRequest.swift in Sources */,
 				OBJ_46 /* Client.swift in Sources */,
@@ -451,6 +521,7 @@
 				B60ED5622700A34F005171FF /* AlarmSeverity.swift in Sources */,
 				B67EA2E12703A3B100C34587 /* Firmware.swift in Sources */,
 				B60ED55627009633005171FF /* SmartHomeMode.swift in Sources */,
+				B6D630F2274791C600BEF9D2 /* OAuthGrantType.swift in Sources */,
 				B67EA2DF2703A2B000C34587 /* DeviceInfoResponse.swift in Sources */,
 				OBJ_47 /* HttpStatusCode.swift in Sources */,
 				OBJ_48 /* ServiceError.swift in Sources */,
@@ -460,18 +531,14 @@
 				OBJ_51 /* Timestamp.swift in Sources */,
 				B66B4133271EC17100A11B0A /* DevicePointsRequest.swift in Sources */,
 				B61B9C6A272092D20025D43C /* ActiveNotificationsRequest.swift in Sources */,
-				OBJ_52 /* GrantType.swift in Sources */,
 				B60ED5662700A7B2005171FF /* NotificationsRequest.swift in Sources */,
 				B61B9C6D272097820025D43C /* PremiumFeature.swift in Sources */,
-				OBJ_53 /* OAuthAPI.swift in Sources */,
 				B63A080726F38DCE003776EC /* UplinkError.swift in Sources */,
 				B61B9C6627207CFB0025D43C /* AidModeResponse.swift in Sources */,
-				OBJ_54 /* OAuthEndpoints.swift in Sources */,
 				B60ED5542700907F005171FF /* SmartHomeModeResponse.swift in Sources */,
 				B60ED55A27009866005171FF /* DeviceConnectionState.swift in Sources */,
 				B60ED55227008FC6005171FF /* SmartHomeModeRequest.swift in Sources */,
 				B61B9C6827207DC40025D43C /* AidModeRequest.swift in Sources */,
-				OBJ_55 /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +554,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_73 /* ApiEndpointTests.swift in Sources */,
+				OBJ_73 /* MyUplinkEndpointTests.swift in Sources */,
+				B6D631042747E7D100BEF9D2 /* OAuthClientTests.swift in Sources */,
 				OBJ_74 /* EndpointTests.swift in Sources */,
 				OBJ_75 /* MyUplinkClientTests.swift in Sources */,
 				OBJ_76 /* TimestampTests.swift in Sources */,

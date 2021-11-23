@@ -31,12 +31,16 @@ public enum Language: String, Encodable {
 
 final public class MyUplinkClient: Client {
 
+    /// The localization language used for API messages
+    var language: Language
+    
     public init(host: String = "myuplink.com", language: Language = .en) {
+        self.language = language
         super.init(host: host)
     }
     
     // MARK:- AidMode
-    public func aidMode(language: Language = .en, deviceId: String, completion: @escaping ResultCompletion<AidModeResponse, ServiceError>) {
+    public func aidMode(deviceId: String, completion: @escaping ResultCompletion<AidModeResponse, ServiceError>) {
         executeRequest(request: AidModeRequest(language: language, deviceId: deviceId), completion: completion)
     }
     
@@ -44,10 +48,10 @@ final public class MyUplinkClient: Client {
     
     /// Queries device information.
     /// - Parameters:
-    ///   - language: The localization language
+    
     ///   - deviceId: The device identifier
     ///   - completion: The result completion handler
-    public func deviceInfo(language: Language = .en, deviceId: String, completion: @escaping ResultCompletion<DeviceInfoResponse, ServiceError>) {
+    public func deviceInfo(deviceId: String, completion: @escaping ResultCompletion<DeviceInfoResponse, ServiceError>) {
         executeRequest(request: DeviceInfoRequest(language: language, deviceId: deviceId), completion: completion)
     }
     
@@ -56,10 +60,9 @@ final public class MyUplinkClient: Client {
     
     /// Get data points for device
     /// - Parameters:
-    ///   - language: The response language
     ///   - deviceId: The deviceid
     ///   - completion: The result completion handler
-    public func devicePoints(language: Language = .en, deviceId: String, completion: @escaping ResultCompletion<DevicdePointResponse, ServiceError>) {
+    public func devicePoints(deviceId: String, completion: @escaping ResultCompletion<DevicdePointResponse, ServiceError>) {
         executeRequest(request: DevicePointsRequest( deviceId: deviceId, language: language), completion: completion)
     }
     
@@ -68,10 +71,9 @@ final public class MyUplinkClient: Client {
     
     /// Retrieve all (active, inactive and archived) alarms for specified system.
     /// - Parameters:
-    ///   - language: The localization language defauilt is en.
     ///   - systemId: The system identifier
     ///   - completion: The result completion handler
-    public func notifications(language: Language = .en, systemId: String, completion: @escaping ResultCompletion<AlarmsPagedResponse, ServiceError>) {
+    public func notifications(systemId: String, completion: @escaping ResultCompletion<AlarmsPagedResponse, ServiceError>) {
         executeRequest(request: NotificationsRequest(systemId: systemId, language: language), completion: completion)
     }
     
@@ -84,7 +86,6 @@ final public class MyUplinkClient: Client {
     
     /// Send ping request to test API availability with authoirzation header.
     /// - Parameters:
-    ///   - language: The localization language default is en.
     ///   - completion: The result completion handler
     public func ping(completion: @escaping ResultCompletion<Nil, ServiceError>) {
         executeRequest(request: PingRequest(), completion: completion)
@@ -94,10 +95,9 @@ final public class MyUplinkClient: Client {
     
     /// Finds out whether the specified system has any active premium subscriptions.
     /// - Parameters:
-    ///   - language: The respons language
     ///   - systemId: The system identifier
     ///   - completion: The result compltion handler
-    public func premium(language: Language = .en, systemId: String, completion: @escaping ResultCompletion<DevicePremiumResponse, ServiceError>) {
+    public func premium(systemId: String, completion: @escaping ResultCompletion<DevicePremiumResponse, ServiceError>) {
         executeRequest(request: DevicePremiumRequest(language: language, systemId: systemId), completion: completion)
     }
  
@@ -105,18 +105,16 @@ final public class MyUplinkClient: Client {
     
     /// Get user systems.
     /// - Parameters:
-    ///   - language: The localization langauge default is en.
     ///   - completion: The result completion handler
-    public func systems(language: Language = .en, completion: @escaping ResultCompletion<SystemsPagedResponse, ServiceError>) {
+    public func systems(completion: @escaping ResultCompletion<SystemsPagedResponse, ServiceError>) {
         executeRequest(request: SystemsRequest(language: language), completion: completion)
     }
     
     /// Get current smart home mode of a system.
     /// - Parameters:
-    ///   - language: The localization language defauilt is en.
     ///   - systemId: The system identifier
     ///   - completion: The result completion handler
-    public func smartHomeMode(language: Language = .en, systemId: String, completion: @escaping ResultCompletion<SmartHomeModeResponse, ServiceError>) {
+    public func smartHomeMode(systemId: String, completion: @escaping ResultCompletion<SmartHomeModeResponse, ServiceError>) {
         executeRequest(request: SmartHomeModeRequest(systemId: systemId, language: language), completion: completion)
     }
     

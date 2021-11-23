@@ -27,20 +27,20 @@ import XCTest
 
 @testable import MyUplink
 
-class MyUplinkClientTests: XCTestCase {
+class ClientTestCase<T>: XCTestCase {
     
     // This is the PostMan Mock URL please adjust for your mock!!!
     let mockHost = "d4d4753c-e3f7-4c2b-aecd-f9b96a227cd4.mock.pstmn.io"
 
-    let systemId = "522235b0-4e15-46d5-a968-e28dffde203b"
-    let deviceId = "21050035-2021-2-24-20-1-11"
-    
-    var client: MyUplinkClient!
+    var client: T!
     var terminated: XCTestExpectation!
-    
+        
+    func createClient() -> T? {
+        return nil
+    }
     
     override func setUpWithError() throws {
-        client = MyUplinkClient(host: mockHost)
+        client = createClient()
         terminated = XCTestExpectation(description: "Remote call must terminate!")
     }
     
@@ -69,7 +69,7 @@ class MyUplinkClientTests: XCTestCase {
         self.terminated.fulfill()
     }
 
-    public func assertSuccessfulRemoteCall<V,E>(_ result: Result<V,E>) {
+    func assertSuccessfulRemoteCall<V,E>(_ result: Result<V,E>) {
         switch result {
         case .success(value: _):
             break
@@ -80,6 +80,19 @@ class MyUplinkClientTests: XCTestCase {
     }
     
     
+}
+
+
+
+
+class MyUplinkClientTests: ClientTestCase<MyUplinkClient> {
+    
+    override func createClient() -> MyUplinkClient? {
+       return MyUplinkClient(host: mockHost)
+    }
+    
+    let systemId = "522235b0-4e15-46d5-a968-e28dffde203b"
+    let deviceId = "21050035-2021-2-24-20-1-11"
 }
 
 // MARK: Ping Tests

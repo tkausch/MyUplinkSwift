@@ -1,5 +1,4 @@
 //
-//
 //  Copyright (C) 2021 Thomas Kausch.
 //
 //  This program is free software: you can redistribute it and/or modify
@@ -15,21 +14,27 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
+//  OAuthTokenQueryParameters.swift
+//  MyUplink
 //
-//  Token.swift
-//  myuplink
-//
-//  Created by Thomas Kausch on 22.06.21.
+//  Created by Thomas Kausch on 19.11.21.
 //
 
 import Foundation
 
-struct Token {
-    var token: String
-    var expiration: Date
+
+struct OAuthTokenParameter: Encodable {
     
-    var hasExpired: Bool {
-        let now = Date()
-        return now < expiration
+    let grantType: OAuthGrantType
+    let code: String?
+    let redirectUri: String?
+    let clientId: String
+    let clientSecret: String
+    
+    
+    private enum CodingKeys : String, CodingKey {
+        case grantType = "grant_type", code, redirectUri = "redirect_uri",
+             clientId = "client_id", clientSecret = "client_secret"
     }
+    
 }
