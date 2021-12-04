@@ -35,17 +35,21 @@ extension ISO8601DateFormatter {
     }
 }
 
-extension Formatter {
+extension ISO8601DateFormatter {
     /// An Iso8601Formatter with internet Date and time in second precision.
-    static let iso8601Timestamp = ISO8601DateFormatter([.withInternetDateTime])
+    static let iso8601 = ISO8601DateFormatter([.withInternetDateTime])
+    static let iso8601WithFractionalSeconds = ISO8601DateFormatter([.withInternetDateTime, .withFractionalSeconds])
+    
 }
 
 extension Date {
     /// Return date  as timestamp string in ISO-8601 format.
-    public var iso8601Timestamp: Timestamp { return Formatter.iso8601Timestamp.string(from: self) }
+    public var iso8601: Timestamp { return ISO8601DateFormatter.iso8601.string(from: self) }
+    public var iso8601WithFractionalSeconds: Timestamp { return ISO8601DateFormatter.iso8601WithFractionalSeconds.string(from: self) }
 }
 
 extension String {
     /// Return date from timestamp string in ISO-8601 fromat.
-    public var iso8601Timestamp: Date? { return Formatter.iso8601Timestamp.date(from: self) }
+    public var iso8601: Date? { return ISO8601DateFormatter.iso8601.date(from: self) }
+    public var iso8601WithFractionalSeconds: Date? { return ISO8601DateFormatter.iso8601WithFractionalSeconds.date(from: self) }
 }

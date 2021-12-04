@@ -24,6 +24,9 @@
 import Foundation
 
 
+
+public typealias DevicePremiumResponseList = [DevicePremiumResponse]
+
 public struct DevicePremiumResponse: Decodable {
-    let subscriptions: [PremiumFeatureSubscription]?
+    let subscriptions: [PremiumFeatureResponseModel]
 }

@@ -26,7 +26,7 @@ import Foundation
 
 struct DevicePremiumRequest: MyUplinkRequest {
     
-    typealias ResponseObject = DevicePremiumResponse
+    typealias ResponseObject = DevicePremiumResponseList
     
     let language: Language
     let systemId: String

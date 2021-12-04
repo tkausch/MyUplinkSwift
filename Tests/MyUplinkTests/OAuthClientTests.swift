@@ -52,9 +52,9 @@ class OAuthClientCredentialsTests: ClientTestCase<OAuthClient> {
     }
     
     func testFailedAccessTokenCall() throws {
-        client.mockHttpStatus = .internalServerError
+        client.mockHttpStatus = .unauthorized
         client.token(completion: { result in
-            self.assertFailedRemoteCall (result, expected: .internalServerError)
+            self.assertFailedRemoteCall (result, expected: .unauthorized)
         })
     }
 }
@@ -79,9 +79,9 @@ class OAuthAuthorizationCodeTests: OAuthClientCredentialsTests {
     
     
     override func testFailedAccessTokenCall() throws {
-        client.mockHttpStatus = .internalServerError
+        client.mockHttpStatus = .unauthorized
         client.token(code: code, state: state) { result in
-            self.assertFailedRemoteCall (result, expected: .internalServerError)
+            self.assertFailedRemoteCall (result, expected: .unauthorized)
         }
     }
     

@@ -97,7 +97,7 @@ final public class MyUplinkClient: Client {
     /// - Parameters:
     ///   - systemId: The system identifier
     ///   - completion: The result compltion handler
-    public func premium(systemId: String, completion: @escaping ResultCompletion<DevicePremiumResponse, ServiceError>) {
+    public func premium(systemId: String, completion: @escaping ResultCompletion<DevicePremiumResponseList, ServiceError>) {
         executeRequest(request: DevicePremiumRequest(language: language, systemId: systemId), completion: completion)
     }
  

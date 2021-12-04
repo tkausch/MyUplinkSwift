@@ -33,34 +33,40 @@ class TimestampTests: XCTestCase {
 
     func testIso8601TimestampFromDate() throws {
         let now = Date()
-        XCTAssertNotNil(now.iso8601Timestamp)
-        XCTAssertEqual(now.iso8601Timestamp, iso8601Formatter.string(from: now))
+        XCTAssertNotNil(now.iso8601)
+        XCTAssertEqual(now.iso8601, iso8601Formatter.string(from: now))
     }
     
     func testDifferentIso8601TimestampFromDate() throws {
         let now = Date()
         let later = now.advanced(by: 1000)
         
-        XCTAssertNotNil(now.iso8601Timestamp)
-        XCTAssertNotEqual(now.iso8601Timestamp, later.iso8601Timestamp)
+        XCTAssertNotNil(now.iso8601)
+        XCTAssertNotEqual(now.iso8601, later.iso8601)
     }
     
-    func testIso8601TimestampFromString() throws {
-        let timestamp = "2021-06-22T19:10:36Z"
-        XCTAssertNotNil(timestamp.iso8601Timestamp)
-        XCTAssertEqual(timestamp.iso8601Timestamp, iso8601Formatter.date(from: timestamp))
+    func testIso8601FromString() throws {
+        let input = "2021-06-22T19:10:36Z"
+        XCTAssertNotNil(input.iso8601)
+        XCTAssertEqual(input.iso8601, iso8601Formatter.date(from: input))
     }
    
-    func testDifferentIso8601TimestampFromString() throws {
-        let timestamp = "2021-06-22T19:10:36Z"
-        let differentTimestamp = "2021-06-22T19:10:37Z"
-        XCTAssertNotNil(timestamp.iso8601Timestamp)
-        XCTAssertNotEqual(timestamp.iso8601Timestamp, iso8601Formatter.date(from: differentTimestamp))
+    func testDifferentIso8601FromString() throws {
+        let inputA = "2021-06-22T19:10:36Z"
+        let inputB = "2021-06-22T19:10:37Z"
+        XCTAssertNotNil(inputA.iso8601)
+        XCTAssertNotEqual(inputA.iso8601, iso8601Formatter.date(from: inputB))
     }
     
-    func testWrongIso8601TimestampFromString() throws {
-        XCTAssertNil("2021-06-22T19:10:36.345Z".iso8601Timestamp)
-        XCTAssertNil("2021-06-22T19:10Z".iso8601Timestamp)
-        XCTAssertNil("2021-06-22T19:10:36".iso8601Timestamp)
+    func testIso8601WithFractionsTimestampFromString() throws {
+        let input = "2021-06-22T19:10:36.123Z"
+        XCTAssertNotNil(input.iso8601WithFractionalSeconds)
+    }
+    
+    
+    func testWrongIso8601FromString() throws {
+        XCTAssertNil("2021-06-22T19:10Z".iso8601)
+        XCTAssertNil("2021-06-22T19:10:36".iso8601)
+        XCTAssertNil("2021-06-22T19:10:36.123Z".iso8601)
     }
 }
