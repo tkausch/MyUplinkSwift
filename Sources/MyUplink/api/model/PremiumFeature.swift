@@ -27,5 +27,5 @@ import Foundation
 public enum PremiumFeature: String, Decodable {
     case history
     case manage
-    case organisation
+    case organization
 }

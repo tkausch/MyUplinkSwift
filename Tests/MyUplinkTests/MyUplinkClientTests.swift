@@ -30,7 +30,7 @@ import XCTest
 class ClientTestCase<T>: XCTestCase {
     
     // This is the PostMan Mock URL please adjust for your mock!!!
-    let mockHost = "d4d4753c-e3f7-4c2b-aecd-f9b96a227cd4.mock.pstmn.io"
+    let mockHost = "8e59a882-4edb-4a6e-b41d-3ac5b1ab5ef9.mock.pstmn.io"
 
     var client: T!
     var terminated: XCTestExpectation!
@@ -147,31 +147,6 @@ extension MyUplinkClientTests {
             self.assertFailedRemoteCall(result, expected: .forbidden)
         }
     }
-
-    func testSystemsInternalServerError() throws {
-        client.mockHttpStatus = .internalServerError
-        client.systems() { result in
-            self.assertFailedRemoteCall(result, expected: .internalServerError)
-        }
-    }
- 
-    func testSystemsServiceUavailableServerError() throws {
-        client.mockHttpStatus = .serviceUnavailable
-        client.systems() { result in
-            self.assertFailedRemoteCall(result, expected: .serviceUnavailable)
-            
-            switch result {
-            case .failure(let remoteServiceError):
-                if let upLinkError = remoteServiceError.uplinkError {
-                    XCTAssertNotNil(upLinkError)
-                } else {
-                    XCTFail("Expecting UpLinkError as data")
-                }
-            case .success(_):
-                XCTFail("expecting error")
-            }
-        }
-    }
     
 }
 
@@ -243,7 +218,7 @@ extension  MyUplinkClientTests {
 
 extension  MyUplinkClientTests {
     
-    func testDeviceINfoSuccessful() throws {
+    func testDeviceInfoSuccessful() throws {
         client.mockHttpStatus = .ok
         client.deviceInfo(deviceId: deviceId) { result in
             self.assertSuccessfulRemoteCall(result)

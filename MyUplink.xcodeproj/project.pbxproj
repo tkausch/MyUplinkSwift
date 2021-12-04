@@ -38,7 +38,7 @@
 		B61B9C6A272092D20025D43C /* ActiveNotificationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C69272092D20025D43C /* ActiveNotificationsRequest.swift */; };
 		B61B9C6D272097820025D43C /* PremiumFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C6C272097820025D43C /* PremiumFeature.swift */; };
 		B61B9C6F27209ABD0025D43C /* DevicePremiumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C6E27209ABD0025D43C /* DevicePremiumResponse.swift */; };
-		B61B9C7127209BCD0025D43C /* PremiumFeatureSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C7027209BCD0025D43C /* PremiumFeatureSubscription.swift */; };
+		B61B9C7127209BCD0025D43C /* PremiumFeatureResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C7027209BCD0025D43C /* PremiumFeatureResponseModel.swift */; };
 		B61B9C7327209CA30025D43C /* DevicePremiumRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B9C7227209CA30025D43C /* DevicePremiumRequest.swift */; };
 		B63A080726F38DCE003776EC /* UplinkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A080626F38DCE003776EC /* UplinkError.swift */; };
 		B66B4131271EBE5500A11B0A /* EnumValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66B4130271EBE5500A11B0A /* EnumValue.swift */; };
@@ -116,7 +116,7 @@
 		B61B9C69272092D20025D43C /* ActiveNotificationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNotificationsRequest.swift; sourceTree = "<group>"; };
 		B61B9C6C272097820025D43C /* PremiumFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumFeature.swift; sourceTree = "<group>"; };
 		B61B9C6E27209ABD0025D43C /* DevicePremiumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePremiumResponse.swift; sourceTree = "<group>"; };
-		B61B9C7027209BCD0025D43C /* PremiumFeatureSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumFeatureSubscription.swift; sourceTree = "<group>"; };
+		B61B9C7027209BCD0025D43C /* PremiumFeatureResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumFeatureResponseModel.swift; sourceTree = "<group>"; };
 		B61B9C7227209CA30025D43C /* DevicePremiumRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePremiumRequest.swift; sourceTree = "<group>"; };
 		B63A080626F38DCE003776EC /* UplinkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UplinkError.swift; sourceTree = "<group>"; };
 		B66B4130271EBE5500A11B0A /* EnumValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumValue.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				B66B4130271EBE5500A11B0A /* EnumValue.swift */,
 				B61B9C6327207BD80025D43C /* AidMode.swift */,
 				B61B9C6C272097820025D43C /* PremiumFeature.swift */,
-				B61B9C7027209BCD0025D43C /* PremiumFeatureSubscription.swift */,
+				B61B9C7027209BCD0025D43C /* PremiumFeatureResponseModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 			files = (
 				OBJ_45 /* Endpoint.swift in Sources */,
 				B61B9C6F27209ABD0025D43C /* DevicePremiumResponse.swift in Sources */,
-				B61B9C7127209BCD0025D43C /* PremiumFeatureSubscription.swift in Sources */,
+				B61B9C7127209BCD0025D43C /* PremiumFeatureResponseModel.swift in Sources */,
 				B68C0FAF26E744EA00D62FB7 /* Product.swift in Sources */,
 				B67EA2E32703A4F700C34587 /* DeviceInfoRequest.swift in Sources */,
 				B6D630ED27478FAD00BEF9D2 /* OAuthTokenRequest.swift in Sources */,

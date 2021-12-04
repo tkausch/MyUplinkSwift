@@ -25,7 +25,20 @@
 import Foundation
 
 
-public struct PremiumFeatureSubscription: Decodable {
+public struct PremiumFeatureResponseModel {
     let validUntil: Date?
     let type: PremiumFeature
+    
+    enum CodingKeys: String, CodingKey {
+          case validUntil
+          case type
+    }
+}
+
+extension PremiumFeatureResponseModel: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        validUntil = try container.decode(String.self, forKey: .validUntil).iso8601WithFractionalSeconds
+        type = try container.decode(PremiumFeature.self, forKey: .type)
+    }
 }
